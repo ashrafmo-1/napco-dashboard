@@ -1,0 +1,411 @@
+{
+  "title": "napco pharma",
+  "modulesTitle": {
+    "dashboard": "Dashboard",
+    "users": "users",
+    "customers": "customers",
+    "roles": "roles",
+    "careers": "careers",
+    "blogs": "blogs",
+    "bolgsCategory": "bolgs Category",
+    "candidates": "candidates",
+    "custormers": "custormers",
+    "events": "events",
+    "faq": "faqs",
+    "newsLetter": "news letter",
+    "products": "prodcuts",
+    "productCategory": "product category",
+    "subscribers": "subscribers",
+    "siteSettings": "Site Settings",
+    "contactUs": "contact us"
+  },
+  "globals": {
+    "filter": "filter",
+    "search": "search",
+    "action": "action",
+    "add": "add",
+    "edit": "edit",
+    "slugAr": "slug arabic",
+    "slugEn": "slug english",
+    "isPublished": "isPublished",
+
+    "status": {
+      "title": "status",
+      "all": "all",
+      "checkActive": "is active",
+      "active": "active",
+      "inActive": "inActive",
+      "checlkPublished": "is Published",
+      "published": "published",
+      "draft": "draft",
+      "checkSent": "is sent",
+      "yes": "yes",
+      "no": "no"
+    }
+  },
+  "users": {
+    "add": "add",
+    "selects": {
+      "role": "Role"
+    },
+    "table": {
+      "name": "name",
+      "phone": "phone",
+      "address": "Address"
+    }
+  },
+  "customers": {
+    "title": "customers",
+    "name": "name",
+    "phone": "phone",
+    "add": "add",
+    "email": "email",
+    "address": "address",
+    "description": "description",
+    "placeholder": {
+      "EnterName": "Enter name",
+      "EnterEmail": "Enter email",
+      "EnterPhone": "Enter phone",
+      "EnterAddress": "Enter address",
+      "EnterDescriptoin": "Enter description"
+    }
+  },
+  "products": {
+    "title": "products",
+    "name": "name",
+    "email": "email",
+    "address": "address",
+    "description": "description",
+    "add": {
+      "title": "add",
+      "lables": {
+        "nameEN": "name english",
+        "nameAR": "name arabic",
+        "DescriptoinEN": "description english",
+        "DescriptoinAR": "description arabic",
+        "ContentEN": "content english",
+        "ContentAR": "content arabic",
+        "slugEN": "slug english",
+        "slugAR": "slug arabic"
+      },
+
+      "placeholder": {
+        "EnterEnName": "Enter english name",
+        "EnterArName": "Enter arabic name",
+        "EnterDescriptoinEN": "Enter description english",
+        "EnterDescriptoinAR": "Enter description arabic",
+        "EnterContentEN": "Enter content english",
+        "EnterContentAR": "Enter content arabic",
+        "EnterslugEN": "Enter slug english",
+        "EnterslugAR": "Enter slug arabic"
+      }
+    }
+  },
+  "productCategory": {
+    "title": "product categories",
+    "name": "name",
+    "add": {
+      "title": "add",
+      "lables": {
+        "nameEN": "Name in English",
+        "nameAR": "Name in Arabic",
+        "descriptionEN": "Description in English",
+        "descriptionAR": "Description in Arabic",
+        "isActive": "Is Active",
+        "thumbnail": "Thumbnail"
+      },
+      "placeholder": {
+        "EnterName": "Enter new category name",
+        "thumbnail": "enter thumbnail"
+      }
+    },
+    "edit": {
+      "title": "edit product category"
+    },
+    "delete": {
+      "confirmation": "Are you sure you want to delete this product category?"
+    }
+  },
+  "blogs": {
+    "title": "blogs",
+    "add": {
+      "title": "add",
+      "TableThumbnail": "thumbnail",
+      "TableTitle": "title",
+      "TableCategoryName": "category name",
+      "TableIsPublished": "is published",
+      "TableAction": "Action",
+      "lables": {
+        "titleAr": "Title in Arabic",
+        "titleEn": "Title in English",
+        "slugAr": "Slug in Arabic",
+        "slugEn": "Slug in English",
+        "contentAr": "Content in Arabic",
+        "contentEn": "Content in English",
+        "metaDataAr": "Meta Data in Arabic",
+        "metaDataEn": "Meta Data in English",
+        "thumbnail": "Thumbnail",
+        "isPublished": "Is Published",
+        "Draft": "Draft",
+        "categoryId": "Category"
+      },
+      "placeholder": {
+        "EnterTitleAr": "Enter title in Arabic",
+        "EnterTitleEn": "Enter title in English",
+        "EnterSlugAr": "Enter slug in Arabic",
+        "EnterSlugEn": "Enter slug in English",
+        "EnterContentAr": "Enter content in Arabic",
+        "EnterContentEn": "Enter content in English",
+        "EnterMetaDataAr": "Enter meta data in Arabic",
+        "EnterMetaDataEn": "Enter meta data in English",
+        "EnterThumbnail": "Upload thumbnail",
+        "SelectCategory": "Select category",
+        "isPublished": "Is Published",
+        "Draft": "Draft",
+        "categoryId": "Category"
+      }
+    },
+    "edit": "edit blog",
+    "delete": "Are you sure you want to delete this blog?"
+  },
+  "blogCategory": {
+    "title": "blog categories",
+    "table": {
+      "name": "name",
+      "isActive": "is active"
+    },
+    "add": "add",
+    "edit": "edit",
+    "lables": {
+      "nameAr": "Name in Arabic",
+      "nameEn": "Name in English",
+      "slugAr": "Slug in Arabic",
+      "slugEn": "Slug in English",
+      "isActive": "Is Active"
+    },
+    "placeholder": {
+      "EnterNameAr": "Enter name in Arabic",
+      "EnterNameEn": "Enter name in English",
+      "EnterSlugAr": "Enter slug in Arabic",
+      "EnterSlugEn": "Enter slug in English",
+      "SelectIsActive": "Select is Active"
+    }
+  },
+  "events": {
+    "title": "events",
+    "table": {
+      "thumbnail": "Thumbnail",
+      "title": "Title",
+      "date": "Date",
+      "time": "Time",
+      "publishedAt": "Published At",
+      "location": "Location",
+      "isPublished": "Is Published",
+      "actions": "Actions"
+    },
+    "placeholder": {
+      "EnterTitleAr": "Enter title in Arabic",
+      "EnterTitleEn": "Enter title in English",
+      "EnterSlugAr": "Enter slug in Arabic",
+      "EnterSlugEn": "Enter slug in English",
+      "EnterDescriptionAr": "Enter description in Arabic",
+      "EnterDescriptionEn": "Enter description in English",
+      "EnterMetaDataAr": "Enter meta data in Arabic",
+      "EnterMetaDataEn": "Enter meta data in English",
+      "EnterLocation": "Enter location",
+      "SelectIsPublished": "Select if published"
+    },
+    "labels": {
+      "titleAr": "Title in Arabic",
+      "titleEn": "Title in English",
+      "slugAr": "Slug in Arabic",
+      "slugEn": "Slug in English",
+      "descriptionAr": "Description in Arabic",
+      "descriptionEn": "Description in English",
+      "metaDataAr": "Meta Data in Arabic",
+      "metaDataEn": "Meta Data in English",
+      "location": "Location",
+      "isPublished": "Is Published"
+    },
+    "validation": {
+      "titleArRequired": "Title in Arabic is required",
+      "titleEnRequired": "Title in English is required",
+      "slugArRequired": "Slug in Arabic is required",
+      "slugEnRequired": "Slug in English is required",
+      "descriptionArRequired": "Description in Arabic is required",
+      "descriptionEnRequired": "Description in English is required",
+      "metaDataArRequired": "Meta Data in Arabic is required",
+      "metaDataEnRequired": "Meta Data in English is required",
+      "locationRequired": "Location is required",
+      "dateRequired": "Date is required",
+      "timeRequired": "Time is required",
+      "thumbnailRequired": "Thumbnail is required",
+      "isPublishedRequired": "Publication status is required"
+    }
+  },
+  "faqs": {
+    "title": "faqs",
+    "table": {
+      "question": "Question",
+      "order": "Order",
+      "isPublished": "Is Published"
+    },
+    "placeholders": {
+      "EnterQuestionEn": "Enter question in English",
+      "EnterQuestionAr": "Enter question in Arabic",
+      "EnterAnswerEn": "Enter answer in English",
+      "EnterAnswerAr": "Enter answer in Arabic",
+      "EnterOrder": "Enter order"
+    },
+    "labels": {
+      "questionEn": "Question in English",
+      "questionAr": "Question in Arabic",
+      "answerEn": "Answer in English",
+      "answerAr": "Answer in Arabic",
+      "order": "Order"
+    }
+  },
+  "NewsLetter": {
+    "title": "News letter",
+    "table": {
+      "subject": "Subject",
+      "isSent": "Is Sent"
+    },
+    "labels": {
+      "subject": "Subject",
+      "content": "Content",
+      "isSent": "Is Sent"
+    },
+    "placeholders": {
+      "EnterSubject": "Enter subject",
+      "EnterContent": "Enter content",
+      "SelectStatus": "Select status"
+    }
+  },
+  "subscribers": {
+    "title": "subscribers",
+    "table": {
+      "email": "Email",
+      "isSubscribed": "Is Subscribed"
+    }
+  },
+  "careers": {
+    "title": "careers",
+    "table": {
+      "jobTitle": "Job Title",
+      "description": "Description",
+      "isActive": "Is Active"
+    },
+    "labels": {
+      "jobTitleEn": "Job Title in English",
+      "jobTitleAr": "Job Title in Arabic",
+      "descriptionEn": "Description in English",
+      "descriptionAr": "Description in Arabic",
+      "isActive": "Is Active",
+      "contentEn": "Content in English",
+      "contentAr": "Content in Arabic",
+      "metaDataEn": {
+        "title": "Meta Data in English",
+        "EnterMetaDataEn": "add new meta data english",
+        "required": {
+          "global": "This field is required",
+          "title": "This field is required",
+          "value": "Please provide a value"
+        }
+      },
+      "metaDataAr": "Meta Data in Arabic",
+
+      "extraDetailsEn": {
+        "title": "Extra Details in English",
+        "description": "Additional information in English",
+        "notes": "Any relevant notes in English",
+        "required": {
+          "global": "This field is required",
+          "title": "This field is required",
+          "value": "Please provide a value for extra details",
+          "description": "Please provide a description"
+        }
+      },
+
+      "extraDetailsAr": {
+        "title": "Extra Details in Arabic",
+        "description": "Additional information in Arabic",
+        "notes": "Any relevant notes in Arabic",
+        "required": {
+          "global": "This field is required",
+          "title": "This field is required",
+          "value": "Please provide a value for extra details",
+          "description": "Please provide a description"
+        }
+      }
+    },
+    "placeholders": {
+      "EnterJobTitleEn": "Enter job title in English",
+      "EnterJobTitleAr": "Enter job title in Arabic",
+      "EnterDescriptionEn": "Enter description in English",
+      "EnterDescriptionAr": "Enter description in Arabic",
+      "EnterContentEn": "Enter content in English",
+      "EnterContentAr": "Enter content in Arabic",
+      "EnterMetaDataEn": {
+        "title": "Enter title in English",
+        "value": "Enter value in English"
+      },
+      "EnterMetaDataAr": "Enter meta data in Arabic",
+
+      "EnterExtraDetailsEn": "extra details in English",
+      "EnterExtraDetailsAr": "extra details in Arabic"
+    }
+  },
+  "candidates": {
+    "title": "candidates",
+    "table": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "coverLetter": "Cover Letter",
+      "careerName": "Career Name",
+      "cv": "CV"
+    }
+  },
+
+  "contactUs": {
+    "title": "contact us",
+    "table": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "status": "Status",
+      "new messages": "New Messages"
+    },
+    "labels": {
+      "subject": "subject",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "status": "Status",
+      "newMessages": "New Messages"
+    },
+    "messagesTitle": "messages",
+    "messages": {
+      "title": "Messages",
+      "description": "Here you can find all the messages sent by users.",
+      "noMessages": "No messages available.",
+      "from": "From",
+      "message": "Message",
+      "sentAt": "Sent At"
+    },
+    "replayTitle": "Replay",
+    "replayForm": {
+      "yourMessage": "Your Message",
+      "pleaseInputMessage": "Please input your message!",
+      "typeMessagePlaceholder": "Type your message here...",
+      "sendReply": "Send Reply"
+    }
+  },
+
+  "siteSettings": {
+    "title": "Site Settings",
+    "portfolioPages": "Portfolio pages",
+    "showData": "show data"
+  }
+}

@@ -1,0 +1,392 @@
+{
+  "title": "نابكو فارما",
+  "modulesTitle": {
+    "dashboard": "لوحة التحكم",
+    "users": "المستخدمون",
+    "customers": "العملاء",
+    "roles": "الأدوار",
+    "careers": "المهن",
+    "blogs": "المدونات",
+    "bolgsCategory": "فئة المدونات",
+    "candidates": "المرشحون",
+    "custormers": "العملاء",
+    "events": "الفعاليات",
+    "faq": "الأسئلة الشائعة",
+    "newsLetter": "النشرة الإخبارية",
+    "products": "المنتجات",
+    "productCategory": "فئة المنتج",
+    "subscribers": "المشتركين",
+    "siteSettings": "اعدادات الموقع",
+    "contactUs": "اتصل بنا"
+  },
+  "globals": {
+    "filter": "تصفية",
+    "search": "بحث",
+    "action": "إجراء",
+    "add": "إضافة",
+    "edit": "تعديل",
+    "slugAr": "الاسم المستعار بالعربية",
+    "slugEn": "الاسم المستعار بالإنجليزية",
+    "status": {
+      "title": "الحالة",
+      "all": "الكل",
+      "checkActive": "نشط",
+      "active": "نشط",
+      "inActive": "غير نشط",
+      "checkPublished": "تم النشر",
+      "published": "تم النشر",
+      "draft": "مسودة",
+      "checkSent": "تم الإرسال",
+      "yes": "نعم",
+      "no": "لا"
+    }
+  },
+  "Home": {
+    "title": "تحليلات لوحة التحكم"
+  },
+  "users": {
+    "add": "إضافة",
+    "selects": {
+      "role": "الدور"
+    },
+    "table": {
+      "name": "الاسم",
+      "phone": "الهاتف",
+      "address": "العنوان"
+    }
+  },
+  "customers": {
+    "title": "العملاء",
+    "name": "الاسم",
+    "phone": "الهاتف",
+    "add": "إضافة",
+    "email": "البريد الإلكتروني",
+    "address": "العنوان",
+    "description": "الوصف",
+    "placeholder": {
+      "EnterName": "أدخل الاسم",
+      "EnterEmail": "أدخل البريد الإلكتروني",
+      "EnterPhone": "أدخل الهاتف",
+      "EnterAddress": "أدخل العنوان",
+      "EnterDescriptoin": "أدخل الوصف"
+    }
+  },
+  "products": {
+    "title": "المنتجات",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "address": "العنوان",
+    "description": "الوصف",
+    "add": {
+      "title": "إضافة",
+      "lables": {
+        "nameEN": "الاسم بالإنجليزية",
+        "nameAR": "الاسم بالعربية",
+        "DescriptoinEN": "الوصف بالإنجليزية",
+        "DescriptoinAR": "الوصف بالعربية",
+        "ContentEN": "المحتوى بالإنجليزية",
+        "ContentAR": "المحتوى بالعربية",
+        "slugEN": "الاسم المستعار بالإنجليزية",
+        "slugAR": "الاسم المستعار بالعربية"
+      },
+
+      "placeholder": {
+        "EnterEnName": "أدخل الاسم بالإنجليزية",
+        "EnterArName": "أدخل الاسم بالعربية",
+        "EnterDescriptoinEN": "أدخل الوصف بالإنجليزية",
+        "EnterDescriptoinAR": "أدخل الوصف بالعربية",
+        "EnterContentEN": "أدخل المحتوى بالإنجليزية",
+        "EnterContentAR": "أدخل المحتوى بالعربية",
+        "EnterslugEN": "أدخل الاسم المستعار بالإنجليزية",
+        "EnterslugAR": "أدخل الاسم المستعار بالعربية"
+      }
+    }
+  },
+  "productCategory": {
+    "title": "فئات المنتجات",
+    "name": "الاسم",
+    "add": {
+      "title": "إضافة",
+      "lables": {
+        "nameEN": "الاسم بالإنجليزية",
+        "nameAR": "الاسم بالعربية",
+        "descriptionEN": "الوصف بالإنجليزية",
+        "descriptionAR": "الوصف بالعربية",
+        "isActive": "نشط",
+        "thumbnail": "صورة مصغرة"
+      },
+      "placeholder": {
+        "EnterName": "أدخل اسم الفئة الجديدة",
+        "thumbnail": "أدخل الصورة المصغرة"
+      }
+    },
+    "edit": {
+      "title": "تعديل فئة المنتج"
+    },
+    "delete": {
+      "confirmation": "هل أنت متأكد أنك تريد حذف هذه الفئة من المنتج؟"
+    }
+  },
+  "blogs": {
+    "title": "المدونات",
+    "add": {
+      "title": "إضافة",
+      "TableThumbnail": "صورة مصغرة",
+      "TableTitle": "العنوان",
+      "TableCategoryName": "اسم الفئة",
+      "TableIsPublished": "تم النشر",
+      "TableAction": "الإجراء",
+      "lables": {
+        "titleAr": "العنوان بالعربية",
+        "titleEn": "العنوان بالإنجليزية",
+        "slugAr": "الاسم المستعار بالعربية",
+        "slugEn": "الاسم المستعار بالإنجليزية",
+        "contentAr": "المحتوى بالعربية",
+        "contentEn": "المحتوى بالإنجليزية",
+        "metaDataAr": "بيانات التعريف بالعربية",
+        "metaDataEn": "بيانات التعريف بالإنجليزية",
+        "thumbnail": "صورة مصغرة",
+        "isPublished": "تم النشر",
+        "Draft": "مسودة",
+        "categoryId": "الفئة"
+      },
+      "placeholder": {
+        "EnterTitleAr": "أدخل العنوان بالعربية",
+        "EnterTitleEn": "أدخل العنوان بالإنجليزية",
+        "EnterSlugAr": "أدخل الاسم المستعار بالعربية",
+        "EnterSlugEn": "أدخل الاسم المستعار بالإنجليزية",
+        "EnterContentAr": "أدخل المحتوى بالعربية",
+        "EnterContentEn": "أدخل المحتوى بالإنجليزية",
+        "EnterMetaDataAr": "أدخل بيانات التعريف بالعربية",
+        "EnterMetaDataEn": "أدخل بيانات التعريف بالإنجليزية",
+        "EnterThumbnail": "تحميل الصورة المصغرة",
+        "SelectCategory": "اختر الفئة",
+        "isPublished": "تم النشر",
+        "Draft": "مسودة",
+        "categoryId": "الفئة"
+      }
+    },
+    "edit": "تعديل المدونة",
+    "delete": "هل أنت متأكد أنك تريد حذف هذه المدونة؟"
+  },
+  "events": {
+    "title": "الفعاليات",
+    "table": {
+      "thumbnail": "صورة مصغرة",
+      "title": "العنوان",
+      "date": "التاريخ",
+      "time": "الوقت",
+      "publishedAt": "تاريخ النشر",
+      "location": "الموقع",
+      "isPublished": "تم النشر",
+      "actions": "الإجراءات"
+    },
+    "placeholder": {
+      "EnterTitleAr": "أدخل العنوان بالعربية",
+      "EnterTitleEn": "أدخل العنوان بالإنجليزية",
+      "EnterSlugAr": "أدخل الاسم المستعار بالعربية",
+      "EnterSlugEn": "أدخل الاسم المستعار بالإنجليزية",
+      "EnterDescriptionAr": "أدخل المحتوى بالعربية",
+      "EnterDescriptionEn": "أدخل المحتوى بالإنجليزية",
+      "EnterMetaDataAr": "أدخل بيانات التعريف بالعربية",
+      "EnterMetaDataEn": "أدخل بيانات التعريف بالإنجليزية",
+      "EnterLocation": "أدخل الموقع",
+      "SelectIsPublished": "اختر حالة النشر"
+    },
+    "labels": {
+      "titleAr": "العنوان بالعربية",
+      "titleEn": "العنوان بالإنجليزية",
+      "slugAr": "الاسم المستعار بالعربية",
+      "slugEn": "الاسم المستعار بالإنجليزية",
+      "descriptionAr": "المحتوى بالعربية",
+      "descriptionEn": "المحتوى بالإنجليزية",
+      "metaDataAr": "بيانات التعريف بالعربية",
+      "metaDataEn": "بيانات التعريف بالإنجليزية",
+      "location": "الموقع",
+      "isPublished": "تم النشر"
+    },
+    "validation": {
+      "titleArRequired": "العنوان بالعربية مطلوب",
+      "titleEnRequired": "العنوان بالإنجليزية مطلوب",
+      "slugArRequired": "الاسم المستعار بالعربية مطلوب",
+      "slugEnRequired": "الاسم المستعار بالإنجليزية مطلوب",
+      "descriptionArRequired": "المحتوى بالعربية مطلوب",
+      "descriptionEnRequired": "المحتوى بالإنجليزية مطلوب",
+      "metaDataArRequired": "بيانات التعريف بالعربية مطلوبة",
+      "metaDataEnRequired": "بيانات التعريف بالإنجليزية مطلوبة",
+      "locationRequired": "الموقع مطلوب",
+      "dateRequired": "التاريخ مطلوب",
+      "timeRequired": "الوقت مطلوب",
+      "thumbnailRequired": "الصورة المصغرة مطلوبة",
+      "isPublishedRequired": "حالة النشر مطلوبة"
+    }
+  },
+  "faqs": {
+    "title": "الأسئلة الشائعة",
+    "table": {
+      "question": "السؤال",
+      "order": "الترتيب",
+      "isPublished": "تم النشر"
+    },
+    "placeholders": {
+      "EnterQuestionAr": "أدخل السؤال بالعربية",
+      "EnterQuestionEn": "أدخل السؤال بالإنجليزية",
+      "EnterAnswerAr": "أدخل الإجابة بالعربية",
+      "EnterAnswerEn": "أدخل الإجابة بالإنجليزية",
+      "EnterOrder": "أدخل الترتيب"
+    },
+    "labels": {
+      "questionAr": "السؤال بالعربية",
+      "questionEn": "السؤال بالإنجليزية",
+      "answerAr": "الإجابة بالعربية",
+      "answerEn": "الإجابة بالإنجليزية",
+      "order": "الترتيب"
+    }
+  },
+  "NewsLetter": {
+    "title": "النشرة الإخبارية",
+    "table": {
+      "subject": "الموضوع",
+      "isSent": "تم الإرسال"
+    },
+    "labels": {
+      "subject": "الموضوع",
+      "content": "المحتوى",
+      "isSent": "تم الإرسال"
+    },
+    "placeholders": {
+      "EnterSubject": "أدخل الموضوع",
+      "EnterContent": "أدخل المحتوى",
+      "SelectStatus": "اختر الحالة"
+    }
+  },
+  "subscribers": {
+    "title": "المشتركين",
+    "table": {
+      "email": "البريد الإلكتروني",
+      "isSubscribed": "هل مشترك"
+    }
+  },
+  "careers": {
+    "title": "المهن",
+    "table": {
+      "jobTitle": "المسمى الوظيفي",
+      "description": "الوصف",
+      "isActive": "نشط"
+    },
+    "labels": {
+      "jobTitleEn": "المسمى الوظيفي باللغة الإنجليزية",
+      "jobTitleAr": "المسمى الوظيفي باللغة العربية",
+      "descriptionEn": "الوصف باللغة الإنجليزية",
+      "descriptionAr": "الوصف باللغة العربية",
+      "isActive": "نشط",
+      "contentEn": "المحتوى باللغة الإنجليزية",
+      "contentAr": "المحتوى باللغة العربية",
+      "metaDataEn": {
+        "title": "بيانات التعريف باللغة الإنجليزية",
+        "EnterMetaDataEn": "إضافة بيانات تعريف جديدة باللغة الإنجليزية",
+        "required": {
+          "global": "هذا الحقل مطلوب",
+          "title": "هذا الحقل مطلوب",
+          "value": "يرجى تقديم قيمة"
+        }
+      },
+      "metaDataAr": {
+        "title": "بيانات التعريف باللغة العربية",
+        "EnterMetaDataAr": "إضافة بيانات تعريف جديدة باللغة العربية",
+        "required": {
+          "global": "هذا الحقل مطلوب",
+          "title": "هذا الحقل مطلوب",
+          "value": "يرجى تقديم قيمة"
+        }
+      },
+      "extraDetailsEn": {
+        "title": "تفاصيل إضافية باللغة الإنجليزية",
+        "description": "معلومات إضافية باللغة الإنجليزية",
+        "notes": "أي ملاحظات ذات صلة باللغة الإنجليزية",
+        "required": {
+          "global": "هذا الحقل مطلوب",
+          "title": "هذا الحقل مطلوب",
+          "value": "يرجى تقديم قيمة لتفاصيل إضافية",
+          "description": "يرجى تقديم وصف"
+        }
+      },
+      "extraDetailsAr": {
+        "title": "تفاصيل إضافية باللغة العربية",
+        "description": "معلومات إضافية باللغة العربية",
+        "notes": "أي ملاحظات ذات صلة باللغة العربية",
+        "required": {
+          "global": "هذا الحقل مطلوب",
+          "title": "هذا الحقل مطلوب",
+          "value": "يرجى تقديم قيمة لتفاصيل إضافية",
+          "description": "يرجى تقديم وصف"
+        }
+      }
+    },
+    "placeholders": {
+      "EnterJobTitleEn": "المسمى الوظيفي باللغة الإنجليزية",
+      "EnterJobTitleAr": "المسمى الوظيفي باللغة العربية",
+      "EnterDescriptionEn": "الوصف باللغة الإنجليزية",
+      "EnterDescriptionAr": "الوصف باللغة العربية",
+      "EnterContentEn": "المحتوى باللغة الإنجليزية",
+      "EnterContentAr": "المحتوى باللغة العربية",
+      "EnterMetaDataEn": {
+        "title": "العنوان باللغة الإنجليزية",
+        "value": "القيمة باللغة الإنجليزية"
+      },
+      "EnterMetaDataAr": "التعريف باللغة العربية",
+      "EnterExtraDetailsEn": "تفاصيل إضافية باللغة الإنجليزية",
+      "EnterExtraDetailsAr": "تفاصيل إضافية باللغة العربية"
+    }
+  },
+  "candidates": {
+    "title": "مرشحين",
+    "table": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "coverLetter": "خطاب التغطية",
+      "careerName": "اسم المهنة",
+      "cv": "السيرة الذاتية"
+    }
+  },
+  "contactUs": {
+    "title": "اتصل بنا",
+    "table": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "status": "الحالة",
+      "new messages": "رسائل جديدة"
+    },
+    "labels": {
+      "subject": "الموضوع",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "status": "الحالة",
+      "newMessages": "رسائل جديدة"
+    },
+    "messagesTitle": "الرسائل",
+    "messages": {
+      "title": "الرسائل",
+      "description": "هنا يمكنك العثور على جميع الرسائل المرسلة من قبل المستخدمين.",
+      "noMessages": "لا توجد رسائل متاحة.",
+      "from": "من",
+      "message": "رسالة",
+      "sentAt": "أرسلت في"
+    },
+    "replayTitle": "الرد",
+    "replayForm": {
+      "yourMessage": "رسالتك",
+      "pleaseInputMessage": "يرجى إدخال رسالتك!",
+      "typeMessagePlaceholder": "اكتب رسالتك هنا...",
+      "sendReply": "إرسال الرد"
+    }
+  },
+  "siteSettings": {
+    "title": "إعدادات الموقع",
+    "portfolioPages": "صفحات الموقع",
+    "showData": "عرض البيانات"
+  }
+}
