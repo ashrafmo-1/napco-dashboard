@@ -3,6 +3,7 @@ import { Button, Modal } from "antd";
 import React, { useState } from "react";
 import { useDeleteBlogHook } from "./hooks/useDeleteBlogHook";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 
 export const DeleteBlog = ({ BlogId }) => {
   const { deleteBlog } = useDeleteBlogHook();
@@ -30,4 +31,9 @@ export const DeleteBlog = ({ BlogId }) => {
       </Modal>
     </div>
   );
+};
+
+
+DeleteBlog.propTypes = {
+    BlogId: PropTypes.number.isRequired,
 };

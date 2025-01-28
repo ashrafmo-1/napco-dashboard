@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import man from "../../../assets/mancard.webp"
 import {LogoutOutlined} from "@ant-design/icons";
+import Cookies from "js-cookie";
 
 export const UserProfile = () => {
     const [active, setActive] = useState(false);
@@ -20,7 +21,10 @@ export const UserProfile = () => {
                             <h6 className={"email"}>{"ashrafmohamed1176@gmail.com".slice(0, 15)}{"..."}</h6>
                         </div>
                     </div>
-                    <div className={"log-out flex gap-3 bg-red-800 p-2 rounded-sm text-white"}>
+                    <div className={"log-out flex gap-3 bg-red-800 p-2 rounded-sm text-white"} onClick={() => {
+                        Cookies.remove("napco-token-dashborad");
+                        window.location.reload();
+                    }}>
                         {"logout"}
                         <LogoutOutlined/>
                     </div>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Input, Col, Select, Row, message } from "antd";
-// import { useSelectsHook } from "../../Hooks/useSelectsHook";
 import { PlusSquareFilled } from "@ant-design/icons";
 import { useAddUserHook } from "./Hooks/useAddUserHook";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import {useSelectsHook} from "../../../hooks/useSelectsHook.jsx";
 
 export const AddNewUser = () => {
   const { t } = useTranslation();
@@ -13,7 +13,7 @@ export const AddNewUser = () => {
   const [form] = Form.useForm();
   // const hasCreateUserPermission = checkPermission("create_user");
   const { addNewUser } = useAddUserHook();
-  // const { type } = useSelectsHook();
+  const { type } = useSelectsHook();
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -104,11 +104,11 @@ export const AddNewUser = () => {
                   </Form.Item>
                 </Col>
                 <Col span={12}>
-                  {/*<Form.Item label="Role" name="roleId" rules={[{ required: true, message: "Role is required." }]}>*/}
-                  {/*  <Select placeholder="Select role">*/}
-                  {/*    {type.map((item, index) => ( <Select.Option value={item.value} key={index}> {item.label} </Select.Option> ))}*/}
-                  {/*  </Select>*/}
-                  {/*</Form.Item>*/}
+                  <Form.Item label="Role" name="roleId" rules={[{ required: true, message: "Role is required." }]}>
+                    <Select placeholder="Select role">
+                      {type.map((item, index) => ( <Select.Option value={item.value} key={index}> {item.label} </Select.Option> ))}
+                    </Select>
+                  </Form.Item>
                 </Col>
               </Row>
               <Form.Item label="Password" name="password" rules={[{ required: true, message: "Password is required." }]}>

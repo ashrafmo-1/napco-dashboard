@@ -1,19 +1,7 @@
 import {useLocation} from "react-router-dom";
 import logo from "../assets/logo.png";
 import {checkPermission} from "../helpers/check-permission";
-import {
-    UserOutlined,
-    ShoppingOutlined,
-    AppstoreOutlined,
-    HomeOutlined,
-    FileTextOutlined,
-    CalendarOutlined,
-    QuestionCircleOutlined,
-    MailOutlined,
-    UserAddOutlined,
-    WechatWorkOutlined,
-    SettingOutlined
-} from "@ant-design/icons";
+import { UserOutlined, ShoppingOutlined, AppstoreOutlined, HomeOutlined, FileTextOutlined, CalendarOutlined, QuestionCircleOutlined, MailOutlined, UserAddOutlined, WechatWorkOutlined, SettingOutlined } from "@ant-design/icons";
 import SideBarLink from "../common/SideBarLink";
 // import { AdminProfile } from "../auth/AdminProfile";
 import React from "react";
@@ -126,6 +114,12 @@ export const SideBar = () => {
                 <SideBarLink
                     content={t("modulesTitle.products")}
                     endPoint={`products`}
+                    iconComp={<HomeOutlined/>}
+                    className={isActive("Dashboard") ? "active-class" : ""}
+                />
+                <SideBarLink
+                    content={t("certifications")}
+                    endPoint={`certifications`}
                     iconComp={<HomeOutlined/>}
                     className={isActive("Dashboard") ? "active-class" : ""}
                 />

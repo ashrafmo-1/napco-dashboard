@@ -4,8 +4,8 @@ import { EditOutlined } from "@ant-design/icons";
 import { useEditUserHook } from "./Hooks/useEditUserHook";
 import { useGetSingleUserHook } from "./Hooks/useGetSingleUserHook";
 import { useTranslation } from "react-i18next";
-// import { useSelectsHook } from "../../Hooks/useSelectsHook";
 import { toast } from "react-toastify";
+import {useSelectsHook} from "../../../hooks/useSelectsHook.jsx";
 
 // eslint-disable-next-line react/prop-types
 export const EditUser = ({ userId }) => {
@@ -14,7 +14,7 @@ export const EditUser = ({ userId }) => {
   const [form] = Form.useForm();
   const { editUser } = useEditUserHook();
   const [loading, setLoading] = useState(false);
-  // const { type } = useSelectsHook();
+  const { type } = useSelectsHook();
   const { data } = useGetSingleUserHook(isModalVisible ? userId : null);
 
   const showModal = () => {
@@ -125,19 +125,19 @@ export const EditUser = ({ userId }) => {
             </Col>
 
             <Col span={12}>
-              {/*<Form.Item*/}
-              {/*  label="Role"*/}
-              {/*  name="roleId"*/}
-              {/*  rules={[{ required: true, message: "Role is required." }]}*/}
-              {/*>*/}
-              {/*  <Select placeholder="Select role">*/}
-              {/*    {type.map((item, index) => (*/}
-              {/*      <Select.Option value={item.value} key={index}>*/}
-              {/*        {item.label}*/}
-              {/*      </Select.Option>*/}
-              {/*    ))}*/}
-              {/*  </Select>*/}
-              {/*</Form.Item>*/}
+              <Form.Item
+                label="Role"
+                name="roleId"
+                rules={[{ required: true, message: "Role is required." }]}
+              >
+                <Select placeholder="Select role">
+                  {type.map((item, index) => (
+                    <Select.Option value={item.value} key={index}>
+                      {item.label}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
             </Col>
           </Row>
 

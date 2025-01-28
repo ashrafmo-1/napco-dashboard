@@ -14,6 +14,7 @@ import {
     NewsLetter, ProductCategory, Products,
     Subscribers
 } from "../modules/dashboard-module/index.js";
+import {Certifications} from "../modules/dashboard-module/certifications/Certifications.jsx";
 
 
 export const AppRoutes = () => {
@@ -42,6 +43,8 @@ export const AppRoutes = () => {
                     <Route path={`add-new-product`} element={<AddProduct />} />
                     <Route path={`products`} element={<Products />} />
                     <Route path={`products/edit/:productId`} element={<EditProduct />} />
+
+                    <Route path={`certifications`} element={<Certifications />} />
 
 
                     <Route path="careers" element={<AllCareers />} />

@@ -7,10 +7,10 @@ export const useDeleteBlogHook = () => {
   const { i18n } = useTranslation();
   const queryClient = useQueryClient();
 
-  const deleteBlog = async (blogId) => {
+  const deleteBlog = async (certificationId) => {
     try {
       await axios.delete(
-        `/${i18n.language}/admin/blogs/delete?blogId=${blogId}`
+        `/${i18n.language}/admin/certifications/delete?certificationId=${certificationId}`
       );
       queryClient.invalidateQueries("blogs");
       toast.success("Blog deleted successfully")
