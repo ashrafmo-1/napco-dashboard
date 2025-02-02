@@ -1,22 +1,19 @@
-import { Button, Form, Modal, Select, Upload } from "antd";
-import { EditFilled, UploadOutlined } from "@ant-design/icons";
+import { Button, Form, Input, Modal, Select, Space, Upload } from "antd";
+import { EditFilled, MinusCircleOutlined, PlusOutlined, UploadOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
-import { Title } from "../../../common/modules/create-edit/Title.jsx";
-import { Description } from "../../../common/modules/create-edit/Description.jsx";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
-import { useEditCertificationHook } from "./hooks/useEditCertificationHook.js";
+import { useEditTeamsHook } from "./hooks/useEditTeamHook.js";
 import PropTypes from "prop-types";
-import { useGetSingleCertificationHook } from "./hooks/useGetSingleCertificationHook.js";
+import { useGetSingleTeamHook } from "./hooks/useGetSingleTeamHook.js";
 
-export const EditCertification = ({ certificationId }) => {
+export const EditTeam = ({ companyTeamId }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isPending, setIsPending] = useState(false);
   const [form] = Form.useForm();
   const { t } = useTranslation();
-  const { editCertification } = useEditCertificationHook();
-  const { data } = useGetSingleCertificationHook(certificationId);
-  const [fileList, setFileList] = useState([]);
+  const { editTeam } = useEditTeamsHook();
+  const { data } = useGetSingleTeamHook(companyTeamId);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -39,24 +36,28 @@ export const EditCertification = ({ certificationId }) => {
             formData.append("image", "");
           }
         
-        formData.append("titleEn", values.titleEn || "");
-        formData.append("titleAr", values.titleAr || "");
-        formData.append("descriptionAr", values.descriptionAr || "");
-        formData.append("descriptionEn", values.descriptionEn || "");
-        formData.append("isPublished", values.isPublished || "0");
+        formData.append("name", values.name || "");
+        formData.append("jobTitle", values.jobTitle || "");
+        formData.append("isActive", values.isActive || "0");
         formData.append("_method", "PUT");
 
-        editCertification(
-          { certificationId: certificationId, formData },
+        if (values.socialLinks) {
+          formData.append("socialLinks", JSON.stringify(values.socialLinks));
+        }
+  
+
+        editTeam(
+          { companyTeamId: companyTeamId, formData },
           {
             onSuccess: () => {
               setIsPending(false);
+              handleCancel();
             },
             onError: (error) => {
               setIsPending(false);
               const errorMessage = error.response?.data?.message;
               if (typeof errorMessage === "object") {
-                Object.entries(errorMessage).forEach(([field, messages]) => {
+                Object.entries(errorMessage).forEach(([messages]) => {
                   messages.forEach((msg) => {
                     toast.error(msg);
                   });
@@ -80,16 +81,16 @@ export const EditCertification = ({ certificationId }) => {
   useEffect(() => {
     if (isModalVisible && data) {
       form.setFieldsValue({
-        titleEn: data.titleEn,
-        titleAr: data.titleAr,
-        descriptionAr: data.descriptionAr,
-        descriptionEn: data.descriptionEn,
-        isPublished:
-          data.isPublished !== undefined ? String(data.isPublished) : "",
-      });
+        name: data.name,
+        jobTitle: data.jobTitle,
+        isActive: data.isActive !== undefined ? String(data.isActive) : "",
+        image: data.image ? [{ url: data.image }] : [],
+        socialLinks: data.socialLink ? JSON.parse(data.socialLink) : []
+        });
     }
   }, [data, form, isModalVisible]);
 
+    const [fileList, setFileList] = useState([]);
   const handleChange = ({ fileList }) => {
     setFileList(fileList);
     form.setFieldsValue({ thumbnail: fileList });
@@ -102,29 +103,30 @@ export const EditCertification = ({ certificationId }) => {
       </Button>
 
       <Modal
-        title={t("blogCategory.add")}
+        title={t("edit")}
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
-          <Title
-            LabletitleAr={"blog arabic title"}
-            LabletitleEn={"blog english title"}
-          />
-          <Description />
+        <Form.Item name={"name"} label={t("name")} rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name={"jobTitle"} label={t("jop title")} rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
 
           <Form.Item
-            label={t("isPublished")}
-            name="isPublished"
+            label={t("isActive")}
+            name="isActive"
             rules={[
               {
                 required: true,
-                message: t("blogs.add.lables.categoryId") + " is required.",
+                message: "required.",
               },
             ]}
           >
-            <Select placeholder={t("blogs.add.placeholder.SelectCategory")}>
+            <Select placeholder={t("is active")}>
               <Select.Option value={"1"}>
                 <div className="flex items-center gap-1">
                   <span className="bg-green-600 p-1 rounded-full"></span>
@@ -141,23 +143,55 @@ export const EditCertification = ({ certificationId }) => {
           </Form.Item>
 
         <Form.Item
-          label={t("blogs.edit.labels.image")}
+          label={t("photo")}
           name="image"
           valuePropName="fileList"
           getValueFromEvent={(e) => e && e.fileList}
           rules={[
             {
               required: true,
-              message: t("image") + " is required.",
+              message: " is required.",
             },
           ]}
         >
           <Upload listType="picture" beforeUpload={() => false} onChange={handleChange}>
             <Button icon={<UploadOutlined />}>
-              {t("image")}
+              {t("blogs.edit.placeholder.EnterThumbnail")}
             </Button>
           </Upload>
         </Form.Item>
+
+          {/* Social Links Field */}
+          <Form.List name="socialLinks">
+            {(fields, { add, remove }) => (
+              <>
+                {fields.map(({ key, name, ...restField }) => (
+                  <Space key={key} style={{ display: "flex", marginBottom: 8 }} align="baseline">
+                    <Form.Item
+                      {...restField}
+                      name={[name, "platform"]}
+                      rules={[{ required: true, message: "Platform is required" }]}
+                    >
+                      <Input placeholder="Platform (e.g., Twitter, LinkedIn)" />
+                    </Form.Item>
+                    <Form.Item
+                      {...restField}
+                      name={[name, "url"]}
+                      rules={[{ required: true, message: "URL is required" }]}
+                    >
+                      <Input placeholder="URL" />
+                    </Form.Item>
+                    <MinusCircleOutlined onClick={() => remove(name)} />
+                  </Space>
+                ))}
+                <Form.Item>
+                  <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
+                    Add Social Link
+                  </Button>
+                </Form.Item>
+              </>
+            )}
+          </Form.List>
 
           <Button
             type="primary"
@@ -165,7 +199,7 @@ export const EditCertification = ({ certificationId }) => {
             className="w-full"
             loading={isPending}
           >
-            {t("blogCategory.add")}
+            {t("blogCategory.edit")}
           </Button>
         </Form>
       </Modal>
@@ -173,6 +207,6 @@ export const EditCertification = ({ certificationId }) => {
   );
 };
 
-EditCertification.propTypes = {
-  certificationId: PropTypes.number.isRequired,
+EditTeam.propTypes = {
+  companyTeamId: PropTypes.number.isRequired,
 };

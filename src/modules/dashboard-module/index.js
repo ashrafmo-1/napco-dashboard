@@ -14,6 +14,8 @@ import {ProductCategory} from "./product-category/ProductCategory.jsx";
 import {Products} from "./product/Products.jsx";
 import AddProduct from "./product/AddProduct.jsx";
 import EditProduct from "./product/EditProduct.jsx";
+import {Events} from "./events/Events.jsx";
+import { Teams } from "./our-teams/Teams.jsx";
 
 
 export {
@@ -31,5 +33,7 @@ export {
     ProductCategory,
     Products,
     AddProduct,
-    EditProduct
+    EditProduct,
+    Events,
+    Teams
 };

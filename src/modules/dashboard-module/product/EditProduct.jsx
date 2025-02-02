@@ -32,7 +32,11 @@ const EditProduct = () => {
           if (key === "images") {
             if (value && value.length > 0) {
               value.forEach((file, index) => {
-                formData.append(`images[${index}][path]`, file.file);
+                if (file.originFileObj) {
+                  formData.append(`images[${index}][path]`, file.originFileObj);
+                } else {
+                  formData.append(`images[${index}][path]`, file.path);
+                }
               });
             }
           } else {
@@ -117,7 +121,11 @@ const EditProduct = () => {
         metaDataEn: data.metaDataEn,
         metaDataAr: data.metaDataAr,
         isActive: data.isActive !== undefined ? String(data.isActive) : "",
-        images: data.images.map((image) => ({
+        images: data?.images?.map((image) => ({
+          uid: image.imageId,
+          name: image.path.split("/").pop(),
+          status: "done",
+          url: image.path,
           imageId: image.imageId,
           path: image.path,
         })),
@@ -152,7 +160,8 @@ const EditProduct = () => {
           <MetaDataAr />
         </Row>
 
-        <UploadImages />
+        <UploadImages isEdit={true} />
+        
         <SelectisActive />
         <Button
           type="primary"
