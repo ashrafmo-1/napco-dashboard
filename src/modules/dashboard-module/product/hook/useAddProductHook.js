@@ -27,7 +27,7 @@ export const useAddProductHook = () => {
     onError: (error) => {
       const errorMessage = error.response?.data?.message;
       if (typeof errorMessage === "object") { 
-        for (const [field, messages] of Object.entries(errorMessage)) {
+        for (const [messages] of Object.entries(errorMessage)) {
           messages.forEach((msg) => {
             toast.error(msg);
           });

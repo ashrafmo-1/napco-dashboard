@@ -51,12 +51,13 @@ export const EditCertification = ({ certificationId }) => {
           {
             onSuccess: () => {
               setIsPending(false);
+              handleCancel();
             },
             onError: (error) => {
               setIsPending(false);
               const errorMessage = error.response?.data?.message;
               if (typeof errorMessage === "object") {
-                Object.entries(errorMessage).forEach(([field, messages]) => {
+                Object.entries(errorMessage).forEach(([messages]) => {
                   messages.forEach((msg) => {
                     toast.error(msg);
                   });

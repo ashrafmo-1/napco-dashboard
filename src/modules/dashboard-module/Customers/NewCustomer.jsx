@@ -56,7 +56,6 @@ export const AddNewCustomer = () => {
   return (
     <div>
         <Button onClick={showModal} type="primary">
-          {" "}
           <PlusSquareFilled /> {t("customers.add")}
         </Button>
 

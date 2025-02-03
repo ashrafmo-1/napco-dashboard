@@ -1,6 +1,6 @@
 import { DeleteOutlined } from "@ant-design/icons";
 import { Button, Modal } from "antd";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDeleteCustomerHook } from "./Hooks/useDeleteCustomerHook";
 
 // eslint-disable-next-line react/prop-types
@@ -11,12 +11,12 @@ const DeleteCustomer = ({ customerId }) => {
   const showModal = () => setIsModalVisible(true);
   const handleCancel = () => setIsModalVisible(false);
 
-  const handleOk = async () => {
-    setLoading(true);
-    await deleteCustomer(customerId);
-    setLoading(false);
-    setIsModalVisible(false);
-  };
+    const handleOk = async () => {
+      setLoading(true);
+      await deleteCustomer(customerId);
+      setLoading(false);
+      setIsModalVisible(false);
+    };
 
   return (
     <div>

@@ -148,8 +148,7 @@ export const AddNewUser = () => {
                   <Select placeholder="Select role" >
                     {type.map((item, index) => (
                       <Select.Option value={item.value} key={index}>
-                        {" "}
-                        {item.label}{" "}
+                        {item.label}
                       </Select.Option>
                     ))}
                   </Select>

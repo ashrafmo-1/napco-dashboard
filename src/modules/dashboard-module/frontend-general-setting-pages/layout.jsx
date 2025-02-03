@@ -2,6 +2,7 @@ import React from "react";
 import {useTranslation} from "react-i18next";
 import {Tabs} from "antd";
 import {GeneralPortfolioSettings} from "./components/GeneralPortfolioSettings.jsx";
+import { PortfolioPages } from "./components/PortfolioPages.jsx";
 
 export const Layout = () => {
     const {t} = useTranslation();
@@ -22,7 +23,7 @@ export const Layout = () => {
                       {
                           label: t("siteSettings.portfolioPages"),
                           key: "2",
-                          // children: <PortfolioPages/>,
+                          children: <PortfolioPages />,
                       }
                   ]}
             />

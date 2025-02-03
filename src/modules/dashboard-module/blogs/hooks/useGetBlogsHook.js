@@ -5,10 +5,9 @@ import axios from "axios";
 export const useGetBlogsHook = (blogId) => {
   const { i18n } = useTranslation();
   const fetchSingleCustomer = async () => {
-    const { data } = await axios.get(
-      `/${i18n.language}/admin/blogs/edit`,
-      { params: { blogId } }
-    );
+    const { data } = await axios.get(`/${i18n.language}/admin/blogs/edit`, {
+      params: { blogId },
+    });
     return data;
   };
 

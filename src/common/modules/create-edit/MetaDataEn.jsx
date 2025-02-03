@@ -1,5 +1,4 @@
 import { Col, Form, Input, Select, Space } from "antd";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
 export const MetaDataEn = () => {

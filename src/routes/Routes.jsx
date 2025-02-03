@@ -20,6 +20,7 @@ import {
   NewsLetter,
   ProductCategory,
   Products,
+  Slider,
   Subscribers,
   Teams,
 } from "../modules/dashboard-module/index.js";
@@ -33,7 +34,7 @@ export const AppRoutes = () => {
     <RouterRoutes>
       <Route
         path="/"
-        element={<Navigate to={`/${MAINPATH}/${i18n.language}/Dashboard`} />}
+        element={<Navigate to={`/${MAINPATH}/${i18n.language}/home`} />}
       />
       {/* login, sign in */}
       <Route element={<AuthGuard />}>
@@ -59,6 +60,7 @@ export const AppRoutes = () => {
           <Route path={`certifications`} element={<Certifications />} />
           <Route path={`events`} element={<Events />} />
           <Route path={`teams`} element={<Teams />} />
+          <Route path={`sliders`} element={<Slider />} />
 
           <Route path="careers" element={<AllCareers />} />
           <Route path="subscribers" element={<Subscribers />} />

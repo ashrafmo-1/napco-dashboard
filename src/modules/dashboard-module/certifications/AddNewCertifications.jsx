@@ -46,13 +46,14 @@ export const AddNewCertifications = () => {
       addNewCertifications(formData, {
         onSuccess: () => {
           setIsPending(false);
+          handleCancel();
           toast.success("certifications added successfully.");
         },
         onError: (error) => {
           setIsPending(false);
           const errorMessage = error.response?.data?.message;
           if (typeof errorMessage === "object") {
-            Object.entries(errorMessage).forEach(([field, messages]) => {
+            Object.entries(errorMessage).forEach(([messages]) => {
               messages.forEach((msg) => {
                 toast.error(msg);
               });

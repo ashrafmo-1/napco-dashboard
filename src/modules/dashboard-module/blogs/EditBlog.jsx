@@ -1,6 +1,6 @@
 import { FastBackwardOutlined, UploadOutlined } from "@ant-design/icons";
 import { Button, Form, Row, Select, Upload } from "antd";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useEditBlogHook } from "./hooks/useEditBlogHook";
 import { useBlog_categoriesHook } from "../blog_categories/hooks/useBlog_categoriesHook";
 import { useGetBlogsHook } from "./hooks/useGetBlogsHook";
@@ -18,11 +18,11 @@ import {Title} from "../../../common/modules/create-edit/Title.jsx";
 
 export const EditBlog = () => {
   const { t, i18n } = useTranslation();
+  const [isPending, setIsPending] = useState(false);
+  const [form] = Form.useForm();
   const { blogId } = useParams();
   const { editBlog } = useEditBlogHook();
   const { blogCategories } = useBlog_categoriesHook();
-  const [isPending, setIsPending] = useState(false);
-  const [form] = Form.useForm();
   const { data } = useGetBlogsHook(blogId);
   const [fileList, setFileList] = useState([]);
 

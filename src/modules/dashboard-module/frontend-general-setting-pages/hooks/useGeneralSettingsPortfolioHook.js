@@ -3,7 +3,7 @@ import {useTranslation} from "react-i18next";
 import axios from "axios";
 import {useQuery} from "react-query";
 
-export const useGeneralSettingPagesHook = ({mainSettingId}) => {
+export const useGeneralSettingPagesHook = (mainSettingId) => {
     const {i18n} = useTranslation();
     const fetchSingleUser = async () => {
         const {data} = await axios.get(`/${i18n.language}/admin/main-settings/edit`, {

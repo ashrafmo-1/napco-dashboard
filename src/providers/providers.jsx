@@ -21,5 +21,5 @@ export const Providers = ({ children }) => {
 };
 
 Providers.propTypes = {
-  children: PropTypes.node.isRequired, // Changed from PropTypes.any to PropTypes.node
+  children: PropTypes.node.isRequired,
 };

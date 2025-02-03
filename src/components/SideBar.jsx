@@ -14,6 +14,7 @@ import {
   WechatWorkOutlined,
   SettingOutlined,
   FieldTimeOutlined,
+  SlidersOutlined,
 } from "@ant-design/icons";
 import SideBarLink from "../common/SideBarLink";
 import React from "react";
@@ -147,6 +148,13 @@ export const SideBar = () => {
           content={t("modulesTitle.contactUs")}
           endPoint={`contact-us`}
           iconComp={<MailOutlined />}
+          className={isActive("contact-us") ? "active-class" : ""}
+        />
+
+        <SideBarLink
+          content={t("sliders")}
+          endPoint={`sliders`}
+          iconComp={<SlidersOutlined />}
           className={isActive("contact-us") ? "active-class" : ""}
         />
 

@@ -44,6 +44,7 @@ export const AddNewTeam = () => {
       addNewTeam(formData, {
         onSuccess: () => {
           setIsPending(false);
+          handleCancel();
           toast.success("Team member added successfully.");
         },
         onError: (error) => {

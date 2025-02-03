@@ -2,14 +2,68 @@ import {useState, useEffect} from "react";
 import {Button, Form, Input, Select, Upload} from "antd";
 import {UploadOutlined} from "@ant-design/icons";
 import {useGeneralSettingPagesHook} from "../hooks/useGeneralSettingsPortfolioHook.js";
+import { useEditGeneralSettingsPortfolio } from "../hooks/useEditGeneralSettingsPortfolio.js";
+import { toast } from "react-toastify";
 
 export const GeneralPortfolioSettings = () => {
     const {data} = useGeneralSettingPagesHook("1");
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
+    const { editGeneralSettingsPortfolio } = useEditGeneralSettingsPortfolio();
 
+    const handleSubmit = () => {
+        setLoading(true);
+        form.validateFields().then((values) => {
+            const { logo, favicon, ...restValues } = values;
+    
+            const formData = new FormData();
+            formData.append("content", JSON.stringify(restValues));
 
+            if (logo?.[0]?.originFileObj) {
+              formData.append("logo", logo[0].originFileObj);
+            } else {
+              formData.append("logo", "");
+            }
+
+            if (favicon?.[0]?.originFileObj) {
+              formData.append("favicon", favicon[0].originFileObj);
+            } else {
+              formData.append("favicon", "");
+            }
+    
+            editGeneralSettingsPortfolio(
+              { values: formData },
+              {
+                onSuccess: () => {
+                  setLoading(false);
+                  toast.success("Portfolio settings updated successfully!");
+                },
+                onError: (error) => {
+                  setLoading(false);
+                  const errorMessage = error.response?.data?.message;
+                  if (typeof errorMessage === "object") {
+                    Object.entries(errorMessage).forEach(([messages]) => {
+                      messages.forEach((msg) => {
+                        toast.error(msg);
+                      });
+                    });
+                  }
+                },
+                onSettled: () => {
+                  setLoading(false);
+                },
+              }
+            );
+          })
+          .catch((errorInfo) => {
+            setLoading(false);
+            console.log("Validate Failed:", errorInfo);
+          });
+      };
+
+    console.log(data);
     useEffect(() => {
+        
         if (data) {
             console.log();
             let newData;
@@ -59,7 +113,7 @@ export const GeneralPortfolioSettings = () => {
     return (
         <div>
             <Form form={form} layout="vertical"
-                // onFinish={handleSubmit}
+                onFinish={handleSubmit}
             >
                 <Form.Item
                     label="Portfolio Title"

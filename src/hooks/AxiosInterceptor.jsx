@@ -4,7 +4,6 @@ import {TOKEN} from "../helpers/index.js";
 
 // eslint-disable-next-line react/prop-types
 const AxiosInterceptor = ({ children }) => {
-
     axios.defaults.baseURL = "https://napco-api.testingelmo.com/api/v1/";
     axios.defaults.headers.post.Authorization = `Bearer ${TOKEN}`;
     axios.defaults.headers.delete.Authorization = `Bearer ${TOKEN}`;

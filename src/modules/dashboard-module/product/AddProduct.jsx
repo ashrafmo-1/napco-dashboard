@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { Button, Form, Row } from "antd";
 import { useAddProductHook } from "./hook/useAddProductHook";
 import { UploadImages } from "./components/create/UploadImages";
@@ -60,7 +60,7 @@ const AddProduct = () => {
         } else {
           formData.append("metaDataAr[keywords]", "");
         }
-        
+
         formData.append("isActive", form_data.isActive ? 1 : 0);
 
         addProduct(formData, {
