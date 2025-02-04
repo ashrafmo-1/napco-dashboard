@@ -1,13 +1,21 @@
 import { Form, Select } from "antd";
 import { useTranslation } from "react-i18next";
 
-export const StatusSlider = () => {
+// eslint-disable-next-line react/prop-types
+export const StatusSlider = ({ restField, fieldKey, name }) => {
   const { t } = useTranslation();
   return (
     <Form.Item
-      label="is active"
-      name="isActive"
-      rules={[{ required: true, message: "Status is required." }]}
+      {...restField}
+      label={t("status")}
+      name={[name, "isActive"]}
+      fieldKey={[fieldKey, "isActive"]}
+      rules={[
+        {
+          required: true,
+          message: t("status") + " is required.",
+        },
+      ]}
     >
       <Select placeholder="Select status">
         <Select.Option value="1">

@@ -1,22 +1,22 @@
-import { StrictMode } from "react";
 import AxiosInterceptor from "../hooks/AxiosInterceptor.jsx";
 import { BrowserRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { UserProvider } from "../context/UserProvider.jsx"; // Changed .js to .jsx
+import { PermissionsProvider } from "../context/PermissionsProvider.jsx";
 
 export const Providers = ({ children }) => {
   const queryClient = new QueryClient();
   return (
-    <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
       <AxiosInterceptor>
-        <UserProvider>
-          <BrowserRouter>
-            <StrictMode>{children}</StrictMode>
-          </BrowserRouter>
-        </UserProvider>
+        <QueryClientProvider client={queryClient}>
+          <UserProvider>
+            <PermissionsProvider>{children}</PermissionsProvider>
+          </UserProvider>
+        </QueryClientProvider>
       </AxiosInterceptor>
-    </QueryClientProvider>
+    </BrowserRouter>
   );
 };
 

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { UserContext } from "./UserContext";
 import PropTypes from "prop-types";
+import { UserContext } from "./UserProvider";
 export const PermissionsContext = createContext();
 
 export const PermissionsProvider = ({ children }) => {

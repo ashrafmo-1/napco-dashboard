@@ -1,16 +1,19 @@
 import { Form, Select } from "antd";
 import { useTranslation } from "react-i18next";
 
-export const MediaType = () => {
+// eslint-disable-next-line react/prop-types
+export const MediaType = ({ restField, fieldKey, name }) => {
   const { t } = useTranslation();
   return (
     <Form.Item
-      label="Media Type"
-      name="MediaType"
+      {...restField}
+      label={t("mediaType")}
+      name={[name, "MediaType"]}
+      fieldKey={[fieldKey, "MediaType"]}
       rules={[
         {
           required: true,
-          message: "Media Type is required.",
+          message: t("mediaType") + " is required.",
         },
       ]}
     >

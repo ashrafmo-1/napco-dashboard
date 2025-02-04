@@ -117,8 +117,7 @@ export const EditBlog = () => {
         metaDataEn: data.metaDataEn,
         thumbnail: data.thumbnail ? [{ url: data.thumbnail }] : [],
         categoryId: data.categoryId,
-        isPublished:
-          data.isPublished !== undefined ? String(data.isPublished) : "",
+        isPublished: data.isPublished !== undefined ? String(data.isPublished) : "",
       });
       setFileList(data.thumbnail ? [{ url: data.thumbnail }] : []);
     }
@@ -153,6 +152,7 @@ export const EditBlog = () => {
           <MetaDataEn />
           <MetaDataAr />
         </Row>
+
         <Form.Item
           label={t("blogs.edit.labels.thumbnail")}
           name="thumbnail"

@@ -122,13 +122,13 @@ export const AddNewTeam = () => {
             rules={[
               {
                 required: true,
-                message: t("blogs.add.lables.image") + " is required.",
+                message: t("image") + " is required.",
               },
             ]}
           >
             <Upload listType="picture" beforeUpload={() => false}>
               <Button icon={<UploadOutlined />}>
-                {t("blogs.add.placeholder.EnterImage")}
+                {t("image")}
               </Button>
             </Upload>
           </Form.Item>

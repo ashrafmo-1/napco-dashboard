@@ -8,10 +8,15 @@ export const useEditSliderHook = () => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
-    async ({ slideId, values }) => {
-      await axios.post(`${i18n.language}/admin/sliders/update?slideId=${slideId}`, values);
+    async ({ slideId, formData }) => {
+      formData.append("_method", "PUT");
+      await axios.post(
+        `${i18n.language}/admin/sliders/update?slideId=${slideId}`,
+        formData
+      );
     },
-    {onSuccess: () => {
+    {
+      onSuccess: () => {
         queryClient.invalidateQueries("sliders");
         toast.success("slider edited successfully.");
       },
@@ -20,11 +25,11 @@ export const useEditSliderHook = () => {
         if (typeof errorMessage === "object") {
           Object.entries(errorMessage).forEach(([messages]) => {
             messages.forEach((msg) => {
-              console.error(msg);
+              toast.error(msg);
             });
           });
         } else {
-          toast.error(errorMessage || "Failed to edit slider.");
+          toast.error(errorMessage || "Error editing slider");
         }
       },
     }

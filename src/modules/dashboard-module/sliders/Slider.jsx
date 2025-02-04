@@ -15,6 +15,8 @@ export const Slider = () => {
     setCurrentPage(pageNumber);
   };
 
+  console.log(sliders[0]?.sliderItem[0]?.slideItemId);
+
   return (
     <div>
       <h1 className="text-4xl font-bold text-gray-800 mb-8 flex gap-2 items-center">
@@ -35,7 +37,9 @@ export const Slider = () => {
         <table className="w-full text-sm text-left rtl:text-right text-gray-500">
           <thead className="text-xs text-gray-700 capitalize bg-gray-50">
             <tr>
-              <th scope="col" className="px-6 py-3">title</th>
+              <th scope="col" className="px-6 py-3">
+                title
+              </th>
               <th scope="col" className="px-6 py-3">
                 {t("actions")}
               </th>
@@ -52,7 +56,10 @@ export const Slider = () => {
                     {slide.title}
                   </th>
                   <td className="px-6 py-4 flex gap-3">
-                    <EditSlider slideId={slide.slideId} />
+                    <EditSlider
+                      slideId={slide.slideId}
+                      sliderItemId={slide.sliderItem.map(item => item.slideItemId)}
+                    />
                     <DeleteSlider slideId={slide.slideId} />
                   </td>
                 </tr>

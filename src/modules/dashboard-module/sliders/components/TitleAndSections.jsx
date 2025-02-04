@@ -29,11 +29,9 @@ export const TitleAndSections = () => {
             },
           ]}
         >
-          <Select placeholder="Select role">
+          <Select mode="tags" placeholder="Enter sections">
             {selectType.map((item, index) => (
-              <Select.Option value={item.value} key={index}>
-                {item.label}
-              </Select.Option>
+              <Select.Option value={item.value} key={index}>{item.label}</Select.Option>
             ))}
           </Select>
         </Form.Item>
@@ -41,3 +39,17 @@ export const TitleAndSections = () => {
     </Row>
   );
 };
+
+// <Select placeholder="Select role">
+// {selectType.map((item, index) => (<Select.Option value={item.value} key={index}>{item.label}</Select.Option>))}
+// </Select>
+
+//                       <Form.Item
+//                       label="Contact"
+//                       name="contact"
+//                       rules={[
+//                         { required: true, message: "Please enter the portfolio contact" },
+//                       ]}
+//                       >
+
+//                       </Form.Item>
