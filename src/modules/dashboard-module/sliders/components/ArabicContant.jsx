@@ -5,8 +5,9 @@ import { useTranslation } from "react-i18next";
 export const ArabicContant = ({ restField, fieldKey, name }) => {
   const { t } = useTranslation();
   return (
-    <div>
+    <div className="flex justify-between">
       <Form.Item
+      className="w-full mr-3"
         {...restField}
         label={t("arabicTitle")}
         name={[name, "contentAr", "title"]}
@@ -19,6 +20,7 @@ export const ArabicContant = ({ restField, fieldKey, name }) => {
       </Form.Item>
 
       <Form.Item
+      className="w-full"
         {...restField}
         label={t("arabicDescription")}
         name={[name, "contentAr", "description"]}

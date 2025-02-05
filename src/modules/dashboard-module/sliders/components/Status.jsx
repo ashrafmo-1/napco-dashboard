@@ -6,6 +6,7 @@ export const StatusSlider = ({ restField, fieldKey, name }) => {
   const { t } = useTranslation();
   return (
     <Form.Item
+      className="w-full mr-3"
       {...restField}
       label={t("status")}
       name={[name, "isActive"]}

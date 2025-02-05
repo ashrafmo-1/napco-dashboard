@@ -15,8 +15,6 @@ export const Slider = () => {
     setCurrentPage(pageNumber);
   };
 
-  console.log(sliders[0]?.sliderItem[0]?.slideItemId);
-
   return (
     <div>
       <h1 className="text-4xl font-bold text-gray-800 mb-8 flex gap-2 items-center">

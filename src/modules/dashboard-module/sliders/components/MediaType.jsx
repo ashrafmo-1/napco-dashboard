@@ -6,6 +6,7 @@ export const MediaType = ({ restField, fieldKey, name }) => {
   const { t } = useTranslation();
   return (
     <Form.Item
+    className="w-full"
       {...restField}
       label={t("mediaType")}
       name={[name, "MediaType"]}

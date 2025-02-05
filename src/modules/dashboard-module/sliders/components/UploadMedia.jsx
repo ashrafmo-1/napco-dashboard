@@ -1,11 +1,11 @@
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Form, Upload } from "antd";
 import { useTranslation } from "react-i18next";
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prop-types
 export const UploadMedia = ({ restField, fieldKey, name }) => {
-  const [form] = Form.useForm();
   const { t } = useTranslation();
+
   return (
     <div>
       <Form.Item
@@ -13,12 +13,10 @@ export const UploadMedia = ({ restField, fieldKey, name }) => {
         label={t("media")}
         name={[name, "media"]}
         fieldKey={[fieldKey, "media"]}
-        valuePropName="file"
-        getValueFromEvent={(e) => e && e.file}
         rules={[
           {
             required: true,
-            message: t("media") + " is required.",
+            message: `${t("media")} is required.`,
           },
         ]}
       >
@@ -33,12 +31,7 @@ export const UploadMedia = ({ restField, fieldKey, name }) => {
             if (file.status === "done") {
               const reader = new FileReader();
               reader.onload = () => {
-                form.setFieldsValue({
-                  [name]: {
-                    ...form.getFieldValue(name),
-                    media: reader.result,
-                  },
-                });
+                restField.onChange(reader.result);
               };
               reader.readAsDataURL(file.originFileObj);
             }
@@ -49,4 +42,11 @@ export const UploadMedia = ({ restField, fieldKey, name }) => {
       </Form.Item>
     </div>
   );
+};
+
+// Prop types validation
+UploadMedia.propTypes = {
+  restField: PropTypes.object.isRequired,
+  fieldKey: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
