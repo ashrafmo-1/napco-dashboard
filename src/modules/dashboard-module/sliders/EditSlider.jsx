@@ -44,7 +44,6 @@ export const EditSlider = ({ slideId, sliderItemId }) => {
           formData.append("frontPageSectionId[]", id);
         });
         values.sliderItems.forEach((item, index) => {
-          formData.append(`sliderItems[${index}][media]`, new Blob([item.media], { type: "application/octet-stream" }));
           formData.append(`sliderItems[${index}][isActive]`, item.isActive);
           formData.append(`sliderItems[${index}][MediaType]`, item.MediaType);
           formData.append(`sliderItems[${index}][sliderItemId]`, sliderItemId);
@@ -64,6 +63,19 @@ export const EditSlider = ({ slideId, sliderItemId }) => {
             `sliderItems[${index}][contentEn][description]`,
             item.contentEn?.description || ""
           );
+
+
+          formData.append(`sliderItems[${index}][media]`, new Blob([item.media], { type: "application/octet-stream" }));
+
+          if (values.media && values.media.length > 0) {
+            values.media.forEach((file, index) => {
+              if (file.originFileObj) {
+                formData.append(`media[${index}][path]`, file.originFileObj);
+              } else {
+                formData.append(`media[${index}][path]`, file.path);
+              }
+            });
+          }
         });
 
         editSlider(
@@ -108,15 +120,23 @@ export const EditSlider = ({ slideId, sliderItemId }) => {
             isActive: item.isActive !== undefined ? String(item.isActive) : "",
             MediaType:
               item.mediaType !== undefined ? String(item.mediaType) : "",
-            media: item.media ? item.media : "",
-            contentEn: {
-              title: item.contentEn?.title || "",
-              description: item.contentEn?.description || "",
-            },
-            contentAr: {
-              title: item.contentAr?.title || "",
-              description: item.contentAr?.description || "",
-            },
+              contentEn: {
+                title: item.contentEn?.title || "",
+                description: item.contentEn?.description || "",
+              },
+              contentAr: {
+                title: item.contentAr?.title || "",
+                description: item.contentAr?.description || "",
+              },
+
+              media: item.media ? [{
+                uid: item.slideItemId,
+                name: item.media.split("/").pop(),
+                status: "done",
+                url: item.media,
+                imageId: item.slideItemId,
+                path: item.media,
+              }] : [],
           })) || [],
       });
     }
@@ -169,7 +189,7 @@ export const EditSlider = ({ slideId, sliderItemId }) => {
                         name={name}
                       />
                     </div>
-                    <UploadMedia restField={restField} fieldKey={fieldKey} name={name} />
+                    <UploadMedia restField={restField} fieldKey={fieldKey} name={name} isEdit={true} />
                     <MinusCircleOutlined
                       className="dynamic-delete-button mb-10"
                       onClick={() => remove(name)}

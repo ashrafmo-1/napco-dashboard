@@ -17,7 +17,7 @@ export const useAuthHook = () => {
       setUser(response.data.profile);
       const access_token = data.token;
       setUser({ ...response.data, token: access_token, isAuthenticated: true });
-      Cookies.set("napco-token-dashborad", access_token);
+      Cookies.set("napco-token-dashborad", access_token, {expires: 0.4167});
       Cookies.set("napco-dashboard-profile", JSON.stringify(data.profile));
       localStorage.setItem(
         "napco-permissions",
