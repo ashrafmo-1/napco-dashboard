@@ -108,7 +108,7 @@ const EditAllCareers = ({ careerId }) => {
             className="w-full"
             loading={isPending}
           >
-            {"Add New career"}
+            {"update"}
           </Button>
         </Form>
       </Modal>

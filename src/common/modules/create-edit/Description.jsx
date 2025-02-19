@@ -1,6 +1,5 @@
 import {Col, Form, Row} from "antd";
 import TextArea from "antd/es/input/TextArea";
-import React from "react";
 import {useTranslation} from "react-i18next";
 
 export const Description = () => {

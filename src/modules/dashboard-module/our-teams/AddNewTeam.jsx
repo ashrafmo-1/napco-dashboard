@@ -82,10 +82,10 @@ export const AddNewTeam = () => {
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
           <Form.Item name={"name"} label={t("name")} rules={[{ required: true }]}>
-            <Input />
+            <Input placeholder="enter name" />
           </Form.Item>
           <Form.Item name={"jobTitle"} label={t("jop title")} rules={[{ required: true }]}>
-            <Input />
+            <Input placeholder="enter jop title" />
           </Form.Item>
 
           <Form.Item

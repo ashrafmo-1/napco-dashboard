@@ -1,14 +1,14 @@
 import { Col, Form, Input, Row } from "antd";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
+// eslint-disable-next-line react/prop-types
 export const Title = ({LabletitleAr, LabletitleEn}) => {
   const { t } = useTranslation();
   return (
     <Row gutter={[16, 16]}>
       <Col span={12}>
         <Form.Item
-          label={LabletitleAr}
+          label={LabletitleEn}
           name="titleEn"
           rules={[
             {
@@ -23,7 +23,7 @@ export const Title = ({LabletitleAr, LabletitleEn}) => {
 
       <Col span={12}>
         <Form.Item
-          label={LabletitleEn}
+          label={LabletitleAr}
           name="titleAr"
           rules={[
             {

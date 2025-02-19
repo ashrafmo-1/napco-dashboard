@@ -59,11 +59,11 @@ export const UploadImages = ({ isEdit }) => {
         ]}
       >
         <Upload
-          name="file"
-          action="/upload"
+          action={null}
+          beforeUpload={() => false}
           listType="picture"
           multiple
-          maxCount={2}
+          maxCount={4}
           onRemove={handleRemove}
           onChange={(info) => {
             if (info.file.status === "done") {

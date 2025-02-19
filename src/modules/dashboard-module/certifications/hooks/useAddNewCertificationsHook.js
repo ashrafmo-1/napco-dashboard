@@ -15,13 +15,11 @@ export const useAddNewCertifications = () => {
     const mutation = useMutation(addNewCertifications, {
         onSuccess: () => {
             queryClient.invalidateQueries("certifications");
-
-            toast.success("add blog successfully.");
         },
         onError: (error) => {
             const errorMessage = error.response?.data?.message;
             if (typeof errorMessage === "object") {
-                for (const [field, messages] of Object.entries(errorMessage)) {
+                for (const [messages] of Object.entries(errorMessage)) {
                     messages.forEach((msg) => {
                         toast.error(msg);
                     });

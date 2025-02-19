@@ -12,7 +12,7 @@ export const useGetSingleEventHook = (eventId) => {
       return data;
     };
   
-    return useQuery(["Events", eventId], fetchSingleEvents, {
+    return useQuery(["events", eventId], fetchSingleEvents, {
       enabled: !!eventId,
       staleTime: 300000,
     });

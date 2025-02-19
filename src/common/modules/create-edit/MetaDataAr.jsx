@@ -1,5 +1,4 @@
 import { Col, Form, Input, Select, Space } from "antd";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
 export const MetaDataAr = () => {
@@ -7,32 +6,20 @@ export const MetaDataAr = () => {
   return (
     <Col span={12}>
       <Space direction="vertical" size="large" className="metadata-space">
-        <Form.Item
-          label={t("careers.labels.metaDataAr.title")}
-          name={["metaDataAr", "title"]}
-        >
-          <Input
-            placeholder={t("careers.placeholders.metaDataAr.title")}
-            className="metadata-input"
-          />
+        <Form.Item label="title arabic" name={["metaDataAr", "title"]}>
+          <Input placeholder={t("title arabic")} className="metadata-input" />
         </Form.Item>
-        <Form.Item
-          label={t("careers.labels.metaDataAr.description")}
-          name={["metaDataAr", "description"]}
-        >
+        <Form.Item label={"description arabic"} name={["metaDataAr", "description"]}>
           <Input.TextArea
-            placeholder={t("careers.placeholders.metaDataAr.description")}
+            placeholder={"title description"}
             className="metadata-textarea"
           />
         </Form.Item>
-        <Form.Item
-          label={t("careers.labels.metaDataEn.keywords")}
-          name={["metaDataAr", "keywords"]}
-        >
+        <Form.Item label={"keywords"} name={["metaDataAr", "keywords"]}>
           <Select
             mode="tags"
             style={{ width: "100%" }}
-            placeholder={t("careers.placeholders.metaDataEn.keywords")}
+            placeholder={"keyword"}
             className="metadata-input"
           />
         </Form.Item>

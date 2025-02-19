@@ -6,13 +6,13 @@ import { useAddNewBlog } from "./hooks/useAddNewBlog";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import {Slug} from "../../../common/modules/create-edit/Slug.jsx";
-import {Description} from "../../../common/modules/create-edit/Description.jsx";
-import {MAINPATH} from "../../../constant/MAINPATH.js";
-import {TextEditorInput} from "../../../common/modules/create-edit/TextEditorInput.jsx";
-import {MetaDataAr} from "../../../common/modules/create-edit/MetaDataAr.jsx";
-import {MetaDataEn} from "../../../common/modules/create-edit/MetaDataEn.jsx";
-import {Title} from "../../../common/modules/create-edit/Title.jsx";
+import { Slug } from "../../../common/modules/create-edit/Slug.jsx";
+import { Description } from "../../../common/modules/create-edit/Description.jsx";
+import { MAINPATH } from "../../../constant/MAINPATH.js";
+import { TextEditorInput } from "../../../common/modules/create-edit/TextEditorInput.jsx";
+import { MetaDataAr } from "../../../common/modules/create-edit/MetaDataAr.jsx";
+import { MetaDataEn } from "../../../common/modules/create-edit/MetaDataEn.jsx";
+import { Title } from "../../../common/modules/create-edit/Title.jsx";
 
 export const AddBlog = () => {
   const { t, i18n } = useTranslation();
@@ -28,7 +28,10 @@ export const AddBlog = () => {
       const formData = new FormData();
 
       if (form_data.thumbnail) {
-        formData.append("thumbnail", form_data.thumbnail.file || form_data.thumbnail);
+        formData.append(
+          "thumbnail",
+          form_data.thumbnail.file || form_data.thumbnail
+        );
       } else {
         formData.append("thumbnail", "");
       }
@@ -51,8 +54,14 @@ export const AddBlog = () => {
       formData.append("contentEn", form_data.contentEn || "");
       formData.append("contentAr", form_data.contentAr || "");
       formData.append("metaDataEn[title]", form_data.metaDataEn?.title || "");
-      formData.append("metaDataEn[description]", form_data.metaDataEn?.description || "");
-      if ( form_data.metaDataEn?.keywords && form_data.metaDataEn.keywords.length > 0) {
+      formData.append(
+        "metaDataEn[description]",
+        form_data.metaDataEn?.description || ""
+      );
+      if (
+        form_data.metaDataEn?.keywords &&
+        form_data.metaDataEn.keywords.length > 0
+      ) {
         form_data.metaDataEn.keywords.forEach((keyword, index) => {
           formData.append(`metaDataEn[keywords][${index}]`, keyword);
         });
@@ -60,8 +69,14 @@ export const AddBlog = () => {
         formData.append("metaDataEn[keywords]", "");
       }
       formData.append("metaDataAr[title]", form_data.metaDataAr?.title || "");
-      formData.append("metaDataAr[description]", form_data.metaDataAr?.description || "");
-      if ( form_data.metaDataAr?.keywords && form_data.metaDataAr.keywords.length > 0) {
+      formData.append(
+        "metaDataAr[description]",
+        form_data.metaDataAr?.description || ""
+      );
+      if (
+        form_data.metaDataAr?.keywords &&
+        form_data.metaDataAr.keywords.length > 0
+      ) {
         form_data.metaDataAr.keywords.forEach((keyword, index) => {
           formData.append(`metaDataAr[keywords][${index}]`, keyword);
         });
@@ -78,7 +93,7 @@ export const AddBlog = () => {
           setIsPending(false);
           const errorMessage = error.response?.data?.message;
           if (typeof errorMessage === "object") {
-            Object.entries(errorMessage).forEach(([field, messages]) => {
+            Object.entries(errorMessage).forEach(([messages]) => {
               messages.forEach((msg) => {
                 toast.error(msg);
               });
@@ -134,7 +149,7 @@ export const AddBlog = () => {
                 },
               ]}
             >
-              <Upload listType="picture" beforeUpload={() => false}>
+              <Upload listType="picture" maxCount={1} beforeUpload={() => false}>
                 <Button icon={<UploadOutlined />}>
                   {t("blogs.add.placeholder.EnterThumbnail")}
                 </Button>

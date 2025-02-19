@@ -51,7 +51,7 @@ export const EditEvent = ({ eventId }) => {
       if (form_data.thumbnail && form_data.thumbnail[0]?.originFileObj) {
         formData.append("thumbnail", form_data.thumbnail[0].originFileObj);
       } else {
-        formData.append("thumbnail", null);
+        formData.append("thumbnail", "");
       }
 
       formData.append("titleEn", form_data.titleEn || "");
@@ -61,12 +61,9 @@ export const EditEvent = ({ eventId }) => {
       formData.append("slugEn", form_data.slugEn || "");
       formData.append("slugAr", form_data.slugAr || "");
       formData.append("metaDataEn[title]", form_data.metaDataEn?.title || "");
-      formData.append(
-        "metaDataEn[description]",
-        form_data.metaDataEn?.description || ""
-      );
+      formData.append("metaDataEn[description]", form_data.metaDataEn?.description || "");
       formData.append("location", form_data.location || "");
-      formData.append("time", moment(form_data.time, "HH:mm"));
+      formData.append("time", form_data.time.format("HH:mm"));
       formData.append("date", moment(form_data.date).format("YYYY-MM-DD"));
 
       if (
@@ -198,6 +195,7 @@ export const EditEvent = ({ eventId }) => {
             ]}
           >
             <Upload
+              maxCount={1}
               listType="picture"
               beforeUpload={() => false}
               onChange={handleChange}
@@ -209,7 +207,7 @@ export const EditEvent = ({ eventId }) => {
           <Row gutter={[16, 16]}>
             <Col span={12}>
               <Form.Item
-                label={t("events.labels.date")}
+                label={t("date")}
                 name="date"
                 rules={[
                   {
@@ -224,7 +222,7 @@ export const EditEvent = ({ eventId }) => {
             <Col span={12}>
               <Form.Item
                 name="time"
-                label={t("events.labels.time")}
+                label={t("time")}
                 rules={[
                   {
                     required: true,

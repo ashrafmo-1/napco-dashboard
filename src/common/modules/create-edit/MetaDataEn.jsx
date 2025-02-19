@@ -7,32 +7,23 @@ export const MetaDataEn = () => {
   return (
     <Col span={12}>
       <Space direction="vertical" size="large" className="metadata-space">
-        <Form.Item
-          label={t("careers.labels.metaDataEn.title")}
-          name={["metaDataEn", "title"]}
-        >
-          <Input
-            placeholder={t("careers.placeholders.metaDataEn.title")}
-            className="metadata-input"
-          />
+        <Form.Item label={t("english title")} name={["metaDataEn", "title"]}>
+          <Input placeholder={"english title"} className="metadata-input" />
         </Form.Item>
         <Form.Item
-          label={t("careers.labels.metaDataEn.description")}
+          label={"english description"}
           name={["metaDataEn", "description"]}
         >
           <Input.TextArea
-            placeholder={t("careers.placeholders.metaDataEn.description")}
+            placeholder={"english description"}
             className="metadata-textarea"
           />
         </Form.Item>
-        <Form.Item
-          label={t("careers.labels.metaDataEn.keywords")}
-          name={["metaDataEn", "keywords"]}
-        >
+        <Form.Item label={"english keywords"} name={["metaDataEn", "keywords"]}>
           <Select
             mode="tags"
             style={{ width: "100%" }}
-            placeholder={t("careers.placeholders.metaDataEn.keywords")}
+            placeholder={"english keywords"}
             className="metadata-input"
           />
         </Form.Item>

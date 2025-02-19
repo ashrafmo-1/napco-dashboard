@@ -34,7 +34,7 @@ export const AddNewCertifications = () => {
       } else {
         formData.append("image", "");
       }
-      
+
       console.log(form_data.image);
 
       formData.append("titleEn", form_data.titleEn || "");
@@ -92,6 +92,7 @@ export const AddNewCertifications = () => {
           <Form.Item
             label={t("isPublished")}
             name="isPublished"
+            initialValue={"1"}
             rules={[
               {
                 required: true,
@@ -99,40 +100,38 @@ export const AddNewCertifications = () => {
               },
             ]}
           >
-            <Select placeholder={t("blogs.add.placeholder.SelectCategory")}>
+            <Select value={"1"} placeholder={t("blogs.add.placeholder.SelectCategory")}>
               <Select.Option value={"1"}>
                 <div className="flex items-center gap-1">
                   <span className="bg-green-600 p-1 rounded-full"></span>
-                  <span>{t("globals.status.active")}</span>
+                  <span>{"Published"}</span>
                 </div>
               </Select.Option>
               <Select.Option value="0">
                 <div className="flex items-center gap-1">
                   <span className="bg-red-600 p-1 rounded-full"></span>
-                  <span>{t("globals.status.inActive")}</span>
+                  <span>{"draft"}</span>
                 </div>
               </Select.Option>
             </Select>
           </Form.Item>
 
           <Form.Item
-              label={t("blogs.add.lables.image")}
-              name="image"
-              valuePropName="file"
-              getValueFromEvent={(e) => e && e.file}
-              rules={[
-                {
-                  required: true,
-                  message: t("blogs.add.lables.image") + " is required.",
-                },
-              ]}
-            >
-              <Upload listType="picture" beforeUpload={() => false}>
-                <Button icon={<UploadOutlined />}>
-                  {t("blogs.add.placeholder.EnterImage")}
-                </Button>
-              </Upload>
-            </Form.Item>
+            label={"image"}
+            name="image"
+            valuePropName="file"
+            getValueFromEvent={(e) => e && e.file}
+            rules={[
+              {
+                required: true,
+                message: "image" + " is required.",
+              },
+            ]}
+          >
+            <Upload listType="picture" beforeUpload={() => false}>
+              <Button icon={<UploadOutlined />}>{"image"}</Button>
+            </Upload>
+          </Form.Item>
 
           <Button
             type="primary"

@@ -1,5 +1,4 @@
 import { Pagination } from "antd";
-import React from "react";
 import { Status } from "../../components/Status";
 import { useTranslation } from "react-i18next";
 import { useProductsCategoryHook } from "./hooks/useProductsCategoryHook";
@@ -11,8 +10,7 @@ import { SearchFilter } from "../../components/SearchFilter";
 
 export const ProductCategory = () => {
   const { t } = useTranslation();
-  const { productCategories, pageCount, setSearchTerm, setCurrentPage } =
-    useProductsCategoryHook();
+  const { productCategories, pageCount, setSearchTerm, setCurrentPage } = useProductsCategoryHook();
 
   const onChange = (pageNumber) => {
     setCurrentPage(pageNumber);

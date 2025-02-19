@@ -1,5 +1,5 @@
 {
-  "title": "napco pharma",
+  "maintitle": "napco pharma",
   "modulesTitle": {
     "dashboard": "Dashboard",
     "users": "users",
@@ -7,7 +7,7 @@
     "roles": "roles",
     "careers": "careers",
     "blogs": "blogs",
-    "bolgsCategory": "bolgs Category",
+    "bolgsCategory": "blogs Category",
     "candidates": "candidates",
     "custormers": "custormers",
     "events": "events",
@@ -27,7 +27,7 @@
     "edit": "edit",
     "slugAr": "slug arabic",
     "slugEn": "slug english",
-    "isPublished": "isPublished",
+    "isPublished": "Published",
 
     "status": {
       "title": "status",

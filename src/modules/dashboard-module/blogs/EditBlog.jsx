@@ -8,13 +8,13 @@ import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-quill/dist/quill.snow.css";
-import {Slug} from "../../../common/modules/create-edit/Slug.jsx";
-import {Description} from "../../../common/modules/create-edit/Description.jsx";
-import {MAINPATH} from "../../../constant/MAINPATH.js";
-import {TextEditorInput} from "../../../common/modules/create-edit/TextEditorInput.jsx";
-import {MetaDataAr} from "../../../common/modules/create-edit/MetaDataAr.jsx";
-import {MetaDataEn} from "../../../common/modules/create-edit/MetaDataEn.jsx";
-import {Title} from "../../../common/modules/create-edit/Title.jsx";
+import { Slug } from "../../../common/modules/create-edit/Slug.jsx";
+import { Description } from "../../../common/modules/create-edit/Description.jsx";
+import { MAINPATH } from "../../../constant/MAINPATH.js";
+import { TextEditorInput } from "../../../common/modules/create-edit/TextEditorInput.jsx";
+import { MetaDataAr } from "../../../common/modules/create-edit/MetaDataAr.jsx";
+import { MetaDataEn } from "../../../common/modules/create-edit/MetaDataEn.jsx";
+import { Title } from "../../../common/modules/create-edit/Title.jsx";
 
 export const EditBlog = () => {
   const { t, i18n } = useTranslation();
@@ -24,12 +24,14 @@ export const EditBlog = () => {
   const { editBlog } = useEditBlogHook();
   const { blogCategories } = useBlog_categoriesHook();
   const { data } = useGetBlogsHook(blogId);
-  const [fileList, setFileList] = useState([]);
+  const [, setFileList] = useState([]);
 
   const handleSubmit = () => {
     setIsPending(true);
-    form.validateFields().then((values) => {
-      const formData = new FormData();
+    form
+      .validateFields()
+      .then((values) => {
+        const formData = new FormData();
         if (values.thumbnail && values.thumbnail[0]?.originFileObj) {
           formData.append("thumbnail", values.thumbnail[0].originFileObj);
         } else {
@@ -45,7 +47,7 @@ export const EditBlog = () => {
         formData.append("contentEn", values.contentEn || "");
         formData.append("isPublished", values.isPublished || "0");
         formData.append("categoryId", values.categoryId || "");
-  
+
         formData.append("descriptionEn", values.descriptionEn || "");
         formData.append("descriptionAr", values.descriptionAr || "");
         formData.append("slugEn", values.slugEn || "");
@@ -54,7 +56,10 @@ export const EditBlog = () => {
         formData.append("contentAr", values.contentAr || "");
         formData.append("metaDataEn[title]", values.metaDataEn?.title || "");
         formData.append("metaDataEn[description]", values.metaDataEn?.description || "");
-        if ( values.metaDataEn?.keywords && values.metaDataEn.keywords.length > 0) {
+        if (
+          values.metaDataEn?.keywords &&
+          values.metaDataEn.keywords.length > 0
+        ) {
           values.metaDataEn.keywords.forEach((keyword, index) => {
             formData.append(`metaDataEn[keywords][${index}]`, keyword);
           });
@@ -62,17 +67,23 @@ export const EditBlog = () => {
           formData.append("metaDataEn[keywords]", "");
         }
         formData.append("metaDataAr[title]", values.metaDataAr?.title || "");
-        formData.append("metaDataAr[description]", values.metaDataAr?.description || "");
-        if ( values.metaDataAr?.keywords && values.metaDataAr.keywords.length > 0) {
+        formData.append(
+          "metaDataAr[description]",
+          values.metaDataAr?.description || ""
+        );
+        if (
+          values.metaDataAr?.keywords &&
+          values.metaDataAr.keywords.length > 0
+        ) {
           values.metaDataAr.keywords.forEach((keyword, index) => {
             formData.append(`metaDataAr[keywords][${index}]`, keyword);
           });
         } else {
           formData.append("metaDataAr[keywords]", "");
         }
-  
 
-        editBlog({ blogId: blogId, formData },
+        editBlog(
+          { blogId: blogId, formData },
           {
             onSuccess: () => {
               setIsPending(false);
@@ -81,7 +92,7 @@ export const EditBlog = () => {
               setIsPending(false);
               const errorMessage = error.response?.data?.message;
               if (typeof errorMessage === "object") {
-                Object.entries(errorMessage).forEach(([field, messages]) => {
+                Object.entries(errorMessage).forEach(([messages]) => {
                   messages.forEach((msg) => {
                     toast.error(msg);
                   });
@@ -117,7 +128,8 @@ export const EditBlog = () => {
         metaDataEn: data.metaDataEn,
         thumbnail: data.thumbnail ? [{ url: data.thumbnail }] : [],
         categoryId: data.categoryId,
-        isPublished: data.isPublished !== undefined ? String(data.isPublished) : "",
+        isPublished:
+          data.isPublished !== undefined ? String(data.isPublished) : "",
       });
       setFileList(data.thumbnail ? [{ url: data.thumbnail }] : []);
     }
@@ -154,21 +166,24 @@ export const EditBlog = () => {
         </Row>
 
         <Form.Item
-          label={t("blogs.edit.labels.thumbnail")}
+          label={t("thumbnail")}
           name="thumbnail"
           valuePropName="fileList"
           getValueFromEvent={(e) => e && e.fileList}
           rules={[
             {
               required: true,
-              message: t("blogs.edit.labels.thumbnail") + " is required.",
+              message: t("thumbnail") + " is required.",
             },
           ]}
         >
-          <Upload listType="picture" beforeUpload={() => false} onChange={handleChange}>
-            <Button icon={<UploadOutlined />}>
-              {t("blogs.edit.placeholder.EnterThumbnail")}
-            </Button>
+          <Upload
+            listType="picture"
+            beforeUpload={() => false}
+            onChange={handleChange}
+            maxCount={1}
+          >
+            <Button icon={<UploadOutlined />}>{t("Thumbnail")}</Button>
           </Upload>
         </Form.Item>
 

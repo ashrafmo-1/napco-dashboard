@@ -34,9 +34,7 @@ export  const AddNewEvent = () => {
             const formData = new FormData();
 
             if (form_data.thumbnail) {
-                formData.append(
-                    "thumbnail",
-                    form_data.thumbnail.file || form_data.thumbnail
+                formData.append( "thumbnail", form_data.thumbnail.file || form_data.thumbnail
                 );
             } else {
                 formData.append("thumbnail", "");
@@ -54,7 +52,7 @@ export  const AddNewEvent = () => {
                 form_data.metaDataEn?.description || ""
             );
             formData.append("location", form_data.location || "");
-            formData.append("time", moment(form_data.time, "HH:mm"));
+            formData.append("time", form_data.time.format("HH:mm"));
             formData.append("date", moment(form_data.date).format("YYYY-MM-DD"));
 
             if (form_data.metaDataEn?.keywords && form_data.metaDataEn.keywords.length > 0) {form_data.metaDataEn.keywords.forEach((keyword, index) => {
@@ -82,7 +80,7 @@ export  const AddNewEvent = () => {
                     setIsPending(false);
                     const errorMessage = error.response?.data?.message;
                     if (typeof errorMessage === "object") {
-                        Object.entries(errorMessage).forEach(([field, messages]) => {
+                        Object.entries(errorMessage).forEach(([messages]) => {
                             messages.forEach((msg) => {
                                 toast.error(msg);
                             });
@@ -151,7 +149,7 @@ export  const AddNewEvent = () => {
                     <Row gutter={[16, 16]}>
                         <Col span={12}>
                             <Form.Item
-                                label={t("events.labels.date")}
+                                label={t("date")}
                                 name="date"
                                 rules={[
                                     {
@@ -166,7 +164,7 @@ export  const AddNewEvent = () => {
                         <Col span={12}>
                             <Form.Item
                                 name="time"
-                                label={t("events.labels.time")}
+                                label={t("time")}
                                 rules={[
                                     {
                                         required: true,
@@ -206,13 +204,13 @@ export  const AddNewEvent = () => {
                             <Select.Option value="1">
                                 <div className="flex items-center gap-1">
                                     <span className="bg-green-600 p-1 rounded-full"></span>
-                                    <span>{t("globals.status.active")}</span>
+                                    <span>{t("globals.status.published")}</span>
                                 </div>
                             </Select.Option>
                             <Select.Option value="0">
                                 <div className="flex items-center gap-1">
                                     <span className="bg-red-600 p-1 rounded-full"></span>
-                                    <span>{t("globals.status.inActive")}</span>
+                                    <span>{t("globals.status.draft")}</span>
                                 </div>
                             </Select.Option>
                         </Select>

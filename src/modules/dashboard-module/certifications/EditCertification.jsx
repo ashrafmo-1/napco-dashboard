@@ -16,7 +16,6 @@ export const EditCertification = ({ certificationId }) => {
   const { t } = useTranslation();
   const { editCertification } = useEditCertificationHook();
   const { data } = useGetSingleCertificationHook(certificationId);
-  const [fileList, setFileList] = useState([]);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -34,11 +33,11 @@ export const EditCertification = ({ certificationId }) => {
       .then((values) => {
         const formData = new FormData();
         if (values.image && values.image[0]?.originFileObj) {
-            formData.append("image", values.image[0].originFileObj);
-          } else {
-            formData.append("image", "");
-          }
-        
+          formData.append("image", values.image[0].originFileObj);
+        } else {
+          formData.append("image", "");
+        }
+
         formData.append("titleEn", values.titleEn || "");
         formData.append("titleAr", values.titleAr || "");
         formData.append("descriptionAr", values.descriptionAr || "");
@@ -85,15 +84,14 @@ export const EditCertification = ({ certificationId }) => {
         titleAr: data.titleAr,
         descriptionAr: data.descriptionAr,
         descriptionEn: data.descriptionEn,
-        isPublished:
-          data.isPublished !== undefined ? String(data.isPublished) : "",
+        image: data.image ? [{ uid: '-1', url: data.image, name: 'image.png', status: 'done' }] : [],
+        isPublished: data.isPublished !== undefined ? String(data.isPublished) : "",
       });
     }
   }, [data, form, isModalVisible]);
 
   const handleChange = ({ fileList }) => {
-    setFileList(fileList);
-    form.setFieldsValue({ thumbnail: fileList });
+    form.setFieldsValue({ image: fileList });
   };
 
   return (
@@ -141,24 +139,26 @@ export const EditCertification = ({ certificationId }) => {
             </Select>
           </Form.Item>
 
-        <Form.Item
-          label={t("blogs.edit.labels.image")}
-          name="image"
-          valuePropName="fileList"
-          getValueFromEvent={(e) => e && e.fileList}
-          rules={[
-            {
-              required: true,
-              message: t("image") + " is required.",
-            },
-          ]}
-        >
-          <Upload listType="picture" beforeUpload={() => false} onChange={handleChange}>
-            <Button icon={<UploadOutlined />}>
-              {t("image")}
-            </Button>
-          </Upload>
-        </Form.Item>
+          <Form.Item
+            label={"image"}
+            name="image"
+            valuePropName="fileList"
+            getValueFromEvent={(e) => e && e.fileList}
+            rules={[
+              {
+                required: true,
+                message: "image" + " is required.",
+              },
+            ]}
+          >
+            <Upload
+              listType="picture"
+              beforeUpload={() => false}
+              onChange={handleChange}
+            >
+              <Button icon={<UploadOutlined />}>{"image"}</Button>
+            </Upload>
+          </Form.Item>
 
           <Button
             type="primary"

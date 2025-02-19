@@ -1,5 +1,6 @@
 {
   "name": "napco-dashboard",
+  "homepage": "https://napco-pharma.com/dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",

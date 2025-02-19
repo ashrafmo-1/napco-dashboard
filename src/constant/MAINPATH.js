@@ -1,1 +1,1 @@
-export const MAINPATH = 'dashboard-admin';
+export const MAINPATH = 'dashboard';

@@ -1,4 +1,4 @@
-import { Button, Form, Row } from "antd";
+import { Button, Col, Form, Row, Select } from "antd";
 import { useEffect, useState } from "react";
 import { UploadImages } from "./components/create/UploadImages";
 import { SelectisActive } from "./components/create/SelectisActive";
@@ -8,13 +8,15 @@ import { useGetSingleProduct } from "./hook/useGetSingleProduct";
 import { BackwardFilled } from "@ant-design/icons";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import {MAINPATH} from "../../../constant/MAINPATH.js";
-import {InputName} from "./components/create/InputName.jsx";
-import {Description} from "../../../common/modules/create-edit/Description.jsx";
-import {TextEditorInput} from "../../../common/modules/create-edit/TextEditorInput.jsx";
-import {Slug} from "../all-careers/components/Slug.jsx";
-import {MetaDataEn} from "../../../common/modules/create-edit/MetaDataEn.jsx";
-import {MetaDataAr} from "../../../common/modules/create-edit/MetaDataAr.jsx";
+import { MAINPATH } from "../../../constant/MAINPATH.js";
+import { InputName } from "./components/create/InputName.jsx";
+// import { Description } from "../../../common/modules/create-edit/Description.jsx";
+import { TextEditorInput } from "../../../common/modules/create-edit/TextEditorInput.jsx";
+import { Slug } from "../all-careers/components/Slug.jsx";
+import { MetaDataEn } from "../../../common/modules/create-edit/MetaDataEn.jsx";
+import { MetaDataAr } from "../../../common/modules/create-edit/MetaDataAr.jsx";
+import TextArea from "antd/es/input/TextArea.js";
+import { useProductsCategoryHook } from "../product-category/hooks/useProductsCategoryHook.js";
 
 const EditProduct = () => {
   const { productId } = useParams();
@@ -23,10 +25,13 @@ const EditProduct = () => {
   const [form] = Form.useForm();
   const [isPending, setIsPending] = useState(false);
   const { data } = useGetSingleProduct(productId);
+  const { productCategories } = useProductsCategoryHook();
 
   const handleSubmit = async () => {
     setIsPending(true);
-    form.validateFields().then((values) => {
+    form
+      .validateFields()
+      .then((values) => {
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
           if (key === "images") {
@@ -75,7 +80,9 @@ const EditProduct = () => {
           formData.append("metaDataAr[keywords]", "");
         }
 
-        editProduct({ productId, values: formData },{
+        editProduct(
+          { productId, values: formData },
+          {
             onSuccess: () => {
               setIsPending(false);
               toast.success("Product updated successfully!");
@@ -84,7 +91,7 @@ const EditProduct = () => {
               setIsPending(false);
               const errorMessage = error.response?.data?.message;
               if (typeof errorMessage === "object") {
-                Object.entries(errorMessage).forEach(([field, messages]) => {
+                Object.entries(errorMessage).forEach(([messages]) => {
                   messages.forEach((msg) => {
                     toast.error(msg);
                   });
@@ -120,6 +127,7 @@ const EditProduct = () => {
         slugAr: data.slugAr,
         metaDataEn: data.metaDataEn,
         metaDataAr: data.metaDataAr,
+        productCategoryId: data.productCategoryId,
         isActive: data.isActive !== undefined ? String(data.isActive) : "",
         images: data?.images?.map((image) => ({
           uid: image.imageId,
@@ -146,7 +154,33 @@ const EditProduct = () => {
       </div>
       <Form form={form} layout="vertical" onFinish={handleSubmit}>
         <InputName />
-        <Description />
+        <Row gutter={[16, 16]}>
+          <Col span={12}>
+            <Form.Item
+              label={t("products.add.lables.DescriptoinEN")}
+              name="descriptionEn"
+              rules={[]}
+            >
+              <TextArea
+                placeholder={t("products.add.placeholder.EnterDescriptoinEN")}
+                autoSize={{ minRows: 6 }}
+              />
+            </Form.Item>
+          </Col>
+
+          <Col span={12}>
+            <Form.Item
+              label={t("products.add.lables.DescriptoinAR")}
+              name="descriptionAr"
+              rules={[]}
+            >
+              <TextArea
+                placeholder={t("products.add.placeholder.EnterDescriptoinAR")}
+                autoSize={{ minRows: 6 }}
+              />
+            </Form.Item>
+          </Col>
+        </Row>
         <TextEditorInput />
         <Slug />
 
@@ -161,8 +195,22 @@ const EditProduct = () => {
         </Row>
 
         <UploadImages isEdit={true} />
-        
+
         <SelectisActive />
+        {/* <product category /> */}
+        <Form.Item
+          label="product category"
+          name="productCategoryId"
+          rules={[{ required: true, message: t("value") + " is required." }]}
+        >
+          <Select placeholder="Select status">
+            {productCategories.map((product, index) => (
+              <Select.Option value={product.productCategoryId} key={index}>
+                {product.name}
+              </Select.Option>
+            ))}
+          </Select>
+        </Form.Item>
         <Button
           type="primary"
           htmlType="submit"
