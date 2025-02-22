@@ -52,7 +52,7 @@ function App() {
                                           onClick={toggleSideBar}/>
                             {/* user profile */}
                             <div className={"flex gap-3 items-center"}>
-                                <ToggleLanguageSwicher/>
+                                {/* <ToggleLanguageSwicher/> */}
                                 <UserProfile/>
                             </div>
                         </div>

@@ -27,17 +27,82 @@ export const EditPortfolioSection = ({ frontPageSectionId, form, sectionData, is
     if (!Array.isArray(data) || data.length === 0) {
       return <p>{t("No data available")}</p>;
     }
-
+  
     return (
       <div>
         <h4>{t(`${contentKey} Table`)}</h4>
         {data.map((row, rowIndex) => (
-          <div key={`${contentKey}-${rowIndex}`} className="border p-3 mb-3 rounded-lg">
-            {Object.keys(row).map((field) => (
-              <Form.Item key={`${contentKey}-${rowIndex}-${field}`} name={[contentKey, rowIndex, field]} label={t(field)}>
-                <Input placeholder={t(`Enter ${field}`)} />
-              </Form.Item>
-            ))}
+          <div
+            key={`${contentKey}-${rowIndex}`}
+            className="border p-3 mb-3 rounded-lg"
+          >
+            {Object.keys(row).map((field) => {
+              // Handle flat fields (e.g., title)
+              if (typeof row[field] !== "object" || row[field] === null) {
+                return (
+                  <Form.Item
+                    key={`${contentKey}-${rowIndex}-${field}`}
+                    name={[contentKey, rowIndex, field]}
+                    label={t(field)}
+                  >
+                    <Input placeholder={t(`Enter ${field}`)} />
+                  </Form.Item>
+                );
+              }
+  
+              // Handle arrays of strings (e.g., cards)
+              if (Array.isArray(row[field]) && typeof row[field][0] === "string") {
+                return row[field].map((card, cardIndex) => (
+                  <Form.Item
+                    key={`${contentKey}-${rowIndex}-${field}-${cardIndex}`}
+                    name={[contentKey, rowIndex, field, cardIndex]}
+                    label={t(`${field} ${cardIndex + 1}`)}
+                  >
+                    <Input.TextArea
+                      defaultValue={card} // Set the default value to the card string
+                      placeholder={t(`Enter ${field} ${cardIndex + 1}`)}
+                      rows={3}
+                    />
+                  </Form.Item>
+                ));
+              }
+  
+              // Handle arrays of objects (e.g., numbers)
+              if (Array.isArray(row[field])) {
+                return row[field].map((item, itemIndex) => (
+                  <div
+                    key={`${contentKey}-${rowIndex}-${field}-${itemIndex}`}
+                    className="mb-2"
+                  >
+                    {Object.keys(item).map((nestedField) => (
+                      <Form.Item
+                        key={`${contentKey}-${rowIndex}-${field}-${itemIndex}-${nestedField}`}
+                        name={[contentKey, rowIndex, field, itemIndex, nestedField]}
+                        label={t(nestedField)}
+                      >
+                        <Input placeholder={t(`Enter ${nestedField}`)} />
+                      </Form.Item>
+                    ))}
+                  </div>
+                ));
+              }
+  
+              // Handle nested objects (e.g., if needed in the future)
+              if (typeof row[field] === "object" && !Array.isArray(row[field]) && row[field] !== null) {
+                return Object.keys(row[field]).map((nestedField) => (
+                  <Form.Item
+                    key={`${contentKey}-${rowIndex}-${field}-${nestedField}`}
+                    name={[contentKey, rowIndex, field, nestedField]}
+                    label={t(nestedField)}
+                  >
+                    <Input placeholder={t(`Enter ${nestedField}`)} />
+                  </Form.Item>
+                ));
+              }
+  
+              // Default case (if none of the above matches)
+              return null;
+            })}
           </div>
         ))}
       </div>
@@ -56,11 +121,25 @@ export const EditPortfolioSection = ({ frontPageSectionId, form, sectionData, is
           {renderDynamicTableInputs("contentEn", sectionData?.contentEn)}
           {renderDynamicTableInputs("contentAr", sectionData?.contentAr)}
 
-          <Form.Item label={t("images")} name="images">
-            <Upload name="images" listType="picture" beforeUpload={() => false} multiple>
-              <Button icon={<UploadOutlined />}>{t("globals.upload")}</Button>
+          {/* <Form.Item label={t("images")} name="images">
+            <Upload
+              name="images"
+              listType="picture"
+              beforeUpload={() => false}
+              multiple
+              defaultFileList={
+                sectionData?.images?.map((image, index) => ({
+                  uid: image.id || index,
+                  name: image.name,
+                  status: "done",
+                  url: image.path,
+                  key: image.id || index,
+                })) || []
+              }
+            >
+              <Button icon={<UploadOutlined />}>{t("upload")}</Button>
             </Upload>
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item label={t("is active")} name="isActive" rules={[{ required: true, message: t("is active is required.") }]}>
             <Select placeholder={t("Select status")}>

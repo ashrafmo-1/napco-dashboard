@@ -48,14 +48,8 @@ const AddProduct = () => {
         formData.append("contentEn", form_data.contentEn || "");
         formData.append("contentAr", form_data.contentAr || "");
         formData.append("metaDataEn[title]", form_data.metaDataEn?.title || "");
-        formData.append(
-          "metaDataEn[description]",
-          form_data.metaDataEn?.description || ""
-        );
-        if (
-          form_data.metaDataEn?.keywords &&
-          form_data.metaDataEn.keywords.length > 0
-        ) {
+        formData.append("metaDataEn[description]",form_data.metaDataEn?.description || "");
+        if (form_data.metaDataEn?.keywords &&form_data.metaDataEn.keywords.length > 0) {
           form_data.metaDataEn.keywords.forEach((keyword, index) => {
             formData.append(`metaDataEn[keywords][${index}]`, keyword);
           });
@@ -63,14 +57,8 @@ const AddProduct = () => {
           formData.append("metaDataEn[keywords]", "");
         }
         formData.append("metaDataAr[title]", form_data.metaDataAr?.title || "");
-        formData.append(
-          "metaDataAr[description]",
-          form_data.metaDataAr?.description || ""
-        );
-        if (
-          form_data.metaDataAr?.keywords &&
-          form_data.metaDataAr.keywords.length > 0
-        ) {
+        formData.append("metaDataAr[description]",form_data.metaDataAr?.description || "");
+        if (form_data.metaDataAr?.keywords &&form_data.metaDataAr.keywords.length > 0) {
           form_data.metaDataAr.keywords.forEach((keyword, index) => {
             formData.append(`metaDataAr[keywords][${index}]`, keyword);
           });
@@ -154,10 +142,10 @@ const AddProduct = () => {
         <TextEditorInput />
         <Slug />
 
-        <Row gutter={[16, 16]}>
+        <div className="flex w-full gap-10">
           <MetaDataEn />
           <MetaDataAr />
-        </Row>
+        </div>
 
         <UploadImages />
         <SelectisActive />

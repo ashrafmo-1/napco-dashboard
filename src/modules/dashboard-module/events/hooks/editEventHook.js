@@ -15,7 +15,7 @@ export const useEditEventHook = () => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries("events");
-        toast.success("User Event successfully.");
+        toast.success("Event added successfully.");
       },
       onError: (error) => {
         const errorMessage = error.response?.data?.message;

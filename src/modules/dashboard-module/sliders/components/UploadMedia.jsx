@@ -33,7 +33,6 @@ export const UploadMedia = ({ restField, fieldKey, name, isEdit }) => {
     >
         <Upload
           name="file"
-          action="/upload"
           listType="picture"
           multiple
           maxCount={1}

@@ -5,9 +5,12 @@ import { useMutation } from "react-query";
 import { useContext } from "react";
 import { UserContext } from "../../../context/UserProvider";
 import { message } from "antd";
+import { MAINPATH } from "../../../constant/MAINPATH";
+import { useTranslation } from "react-i18next";
 
 export const useAuthHook = () => {
   const { setUser } = useContext(UserContext);
+  const { i18n } = useTranslation();
   return useMutation({
     mutationFn: (data) => {
       return axios.post("admin/auth/login", data);
@@ -24,7 +27,7 @@ export const useAuthHook = () => {
         JSON.stringify(data.permissions)
       );
       Cookies.set("role", data.role);
-      window.location.href = "/dashboard";
+      window.location.href = `/${MAINPATH}/${i18n.language}/home`;
     },
     onError: (error) => {
       const errorMessage = error.response?.data?.message;

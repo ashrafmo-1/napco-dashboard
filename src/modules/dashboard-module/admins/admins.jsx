@@ -28,23 +28,7 @@ export const Admins = () => {
         <h4 className=" capitalize mb-2 text-2xl">{t("globals.filter")}</h4>
         <div className="flex flex-wrap items-center gap-4">
           <SearchFilter search={setSearchTerm} />
-          {/* <Select
-            defaultValue="Select Admin"
-            style={{ width: 150 }}
-            onChange={(e) => setStatusTerm(e.target.value)}
-          >
-            {type.map((item) => (
-              <Select.Option value={item.value}>{item.label}</Select.Option>
-            ))}
-          </Select> */}
-
-          <Select
-            defaultValue=""
-            style={{ width: 150 }}
-            onChange={(value) =>
-              setStatusTerm(value === "" ? null : Number(value))
-            }
-          >
+          <Select defaultValue="" style={{ width: 150 }} onChange={(value) => setStatusTerm(value === "" ? null : Number(value))}>
             <Select.Option disabled>{t("status")}</Select.Option>
             <Select.Option value="">
               <div className="flex gap-1 items-center">

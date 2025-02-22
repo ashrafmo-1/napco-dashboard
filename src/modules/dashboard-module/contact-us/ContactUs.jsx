@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { useContactUs } from "./hooks/useContactUs";
 import { Pagination } from "antd";
@@ -91,12 +90,9 @@ export const ContactUs = () => {
                     </span>
                   </th>
                   <td className="px-6 py-4">
-                    {message.newMessagesCount === 0 ? (
-                      message.newMessagesCount
+                    {message.newMessagesCount === 0 ? (`${message.newMessagesCount}`
                     ) : (
-                      <div className="bg-red-600 p-2 text-white">
-                        message.newMessagesCount
-                      </div>
+                        `${message.newMessagesCount}`
                     )}
                   </td>
                   <td className="px-6 py-4 flex gap-3">

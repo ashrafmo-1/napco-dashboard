@@ -30,9 +30,9 @@ export const Blogs = () => {
         </div>
       </div>
 
-      <Button type="primary">
-        <Link to={`/${MAINPATH}/${i18n.language}/add-new-blog`}>add</Link>
-      </Button>
+      <Link to={`/${MAINPATH}/${i18n.language}/add-new-blog`}>
+        <Button type="primary">add</Button>
+      </Link>
 
       <div className="relative w-full overflow-x-auto shadow-md sm:rounded-lg mt-2">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500">

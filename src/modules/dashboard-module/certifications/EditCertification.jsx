@@ -108,8 +108,8 @@ export const EditCertification = ({ certificationId }) => {
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
           <Title
-            LabletitleAr={"blog arabic title"}
-            LabletitleEn={"blog english title"}
+            LabletitleAr={"arabic title"}
+            LabletitleEn={"english title"}
           />
           <Description />
 

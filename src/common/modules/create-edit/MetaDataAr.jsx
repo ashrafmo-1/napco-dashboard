@@ -1,11 +1,10 @@
-import { Col, Form, Input, Select, Space } from "antd";
+import { Form, Input, Select } from "antd";
 import { useTranslation } from "react-i18next";
 
 export const MetaDataAr = () => {
   const { t } = useTranslation();
   return (
-    <Col span={12}>
-      <Space direction="vertical" size="large" className="metadata-space">
+    <div className="w-[50%]">
         <Form.Item label="title arabic" name={["metaDataAr", "title"]}>
           <Input placeholder={t("title arabic")} className="metadata-input" />
         </Form.Item>
@@ -23,7 +22,6 @@ export const MetaDataAr = () => {
             className="metadata-input"
           />
         </Form.Item>
-      </Space>
-    </Col>
+    </div>
   );
 };

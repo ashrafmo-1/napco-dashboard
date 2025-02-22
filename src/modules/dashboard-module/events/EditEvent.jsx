@@ -1,15 +1,4 @@
-import {
-  Button,
-  Col,
-  DatePicker,
-  Form,
-  Input,
-  Modal,
-  Row,
-  Select,
-  TimePicker,
-  Upload,
-} from "antd";
+import { Button, Col, DatePicker, Form, Input, Modal, Row, Select, TimePicker, Upload } from "antd";
 import { EditFilled, UploadOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
 import moment from "moment";
@@ -97,7 +86,6 @@ export const EditEvent = ({ eventId }) => {
         { eventId: eventId, formData },
         {
           onSuccess: () => {
-            toast.success("Blog added successfully.");
             setIsPending(false);
             handleCancel();
           },
