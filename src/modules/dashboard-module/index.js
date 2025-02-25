@@ -1,5 +1,5 @@
 import {Customers} from "./Customers/Customer.jsx";
-import {Admins} from "./Admins/Admins.jsx";
+import Admins from "./Admins/Admins.jsx";
 import {AllCareers} from "./all-careers/AllCareers.jsx";
 import {Subscribers} from "./Subscribers/Subscribers.jsx";
 import {NewsLetter} from "./news-letter/NewsLetter.jsx";
@@ -16,7 +16,6 @@ import EditProduct from "./product/EditProduct.jsx";
 import {Events} from "./events/Events.jsx";
 import { Teams } from "./our-teams/Teams.jsx";
 import { Slider } from "./sliders/Slider.jsx";
-
 
 export {
     Admins,

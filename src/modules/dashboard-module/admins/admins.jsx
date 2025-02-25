@@ -8,7 +8,7 @@ import { UserOutlined } from "@ant-design/icons";
 import { SearchFilter } from "../../components/SearchFilter";
 import {Status} from "../../components/Status.jsx";
 
-export const Admins = () => {
+const Admins = () => {
   const { t } = useTranslation();
   const { pageCount, setSearchTerm, setStatusTerm, users, setCurrentPage } =
     useUsersHook();
@@ -109,4 +109,6 @@ export const Admins = () => {
       </div>
     </div>
   );
-};
+}
+
+export default Admins
