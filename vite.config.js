@@ -4,8 +4,22 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	resolve: {
-		extensions: [".js", ".jsx"],
+	// resolve: {
+	// 	extensions: [".js", ".jsx"],
+	// },
+	// base: "https://napco-admin.testingelmo.com/dashboard",
+
+	base: '/',
+	server: {
+	  historyApiFallback: true, // دعم التنقل عبر الـ SPA
 	},
-	base: "https://napco-dashboard.vercel.app",
 });
+
+
+// export default defineConfig({
+//   plugins: [react()],
+//   base: '/',
+//   server: {
+//     historyApiFallback: true, // دعم التنقل عبر الـ SPA
+//   },
+// })
