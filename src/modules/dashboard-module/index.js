@@ -1,5 +1,5 @@
 import {Customers} from "./Customers/Customer.jsx";
-import Admins from "./Admins/Admins.jsx";
+import Admins from "./admins/admins.jsx";
 import {AllCareers} from "./all-careers/AllCareers.jsx";
 import {Subscribers} from "./Subscribers/Subscribers.jsx";
 import {NewsLetter} from "./news-letter/NewsLetter.jsx";
