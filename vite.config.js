@@ -7,7 +7,7 @@ export default defineConfig({
 	 resolve: {
 	 	extensions: [".js", ".jsx"],
 	 },
-	 base: "https://napco-admin.testingelmo.com/dashboard",
+	 // base: "https://napco-admin.testingelmo.com/dashboard",
 
 	base: '/',
 	server: {
