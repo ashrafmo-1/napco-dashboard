@@ -7,9 +7,7 @@ export default defineConfig({
 	 resolve: {
 	 	extensions: [".js", ".jsx"],
 	 },
-	 // base: "https://napco-admin.testingelmo.com/dashboard",
-
-	base: '/',
+	 base: "https://napco-dashboard.vercel.app/dashboard",
 	server: {
 	  historyApiFallback: true, // دعم التنقل عبر الـ SPA
 	},
