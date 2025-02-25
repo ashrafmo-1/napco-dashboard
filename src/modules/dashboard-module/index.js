@@ -4,7 +4,7 @@ import {AllCareers} from "./all-careers/AllCareers.jsx";
 import {Subscribers} from "./subscribers/Subscribers.jsx";
 import {NewsLetter} from "./news-letter/NewsLetter.jsx";
 import {ContactUs} from "./contact-us/ContactUs.jsx";
-import {Candidates} from "./Candidates/Candidates.jsx";
+import {Candidates} from "./candidates/Candidates.jsx";
 import {BlogCategories} from "./blog_categories/Blog_categories.jsx";
 import {Blogs} from "./blogs/Blogs.jsx";
 import {AddBlog} from "./blogs/AddBlog.jsx";

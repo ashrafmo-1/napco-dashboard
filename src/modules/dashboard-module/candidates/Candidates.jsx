@@ -1,5 +1,4 @@
 import { Pagination } from "antd";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { useCandidatesHook } from "./hooks/useCandidatesHook";
 import { DeleteCandidate } from "./DeleteCandidate";
