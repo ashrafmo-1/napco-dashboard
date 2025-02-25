@@ -4,10 +4,10 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	// resolve: {
-	// 	extensions: [".js", ".jsx"],
-	// },
-	// base: "https://napco-admin.testingelmo.com/dashboard",
+	 resolve: {
+	 	extensions: [".js", ".jsx"],
+	 },
+	 base: "https://napco-admin.testingelmo.com/dashboard",
 
 	base: '/',
 	server: {
