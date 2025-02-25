@@ -1,6 +1,5 @@
 {
   "name": "napco-dashboard",
-  "homepage": "https://napco-admin.testingelmo.com/dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
