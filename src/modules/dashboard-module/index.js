@@ -1,4 +1,3 @@
-// import {User} from "./users-module/User.jsx";
 import {Customers} from "./Customers/Customer.jsx";
 import {Admins} from "./Admins/Admins.jsx";
 import {AllCareers} from "./all-careers/AllCareers.jsx";
