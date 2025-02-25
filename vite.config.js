@@ -7,5 +7,5 @@ export default defineConfig({
 	resolve: {
 		extensions: [".js", ".jsx"],
 	},
-	base: "https://napco-pharma.com/dashboard",
+	base: "https://napco-dashboard.vercel.app",
 });
